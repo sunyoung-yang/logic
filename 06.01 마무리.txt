@@ -1,0 +1,128 @@
+  
+1.아래를 다형성의 활용하여 프로그래밍 하시오.
+
+-원의 넓이
+-사각형 넓이
+-삼각형 넓이
+==========
+3개 넓이의 총합을 구하는 프로그램을 짜시오
+
+class Shape{
+	int getArea() {
+return 0;
+	}
+}
+class Circle extends Shape{
+	private int radius;
+	Circle(int radius){
+		this.radius=radius;
+	}
+	int getArea() {
+		return radius*radius*(int)Math.PI;
+	}
+}
+class Rectangle extends Shape{
+	private int width,height;
+	Rectangle(int width,int height){
+		this.width=width;
+		this.height=height;
+	}
+	int getArea() {
+		return width*height;
+	}
+}
+class Triangle extends Shape{
+	private int width,height;
+	Triangle(int width,int height){
+		this.width=width;
+		this.height=height;
+	}
+	int getArea() {
+		return (width*height)/2;
+	}
+}
+
+ class Sum {
+
+	public static void main(String[] args) {
+		Shape[] shapes = new Shape[3];
+		
+		shapes[0]= new Circle(10);
+		shapes[1]=new Rectangle(5,10);
+		shapes[2]=new Triangle(5,10);
+		
+		int totalArea = 0;
+		for(Shape shape : shapes)
+			totalArea = totalArea+shape.getArea();
+		
+		System.out.println(totalArea);
+	} 
+
+}
+
+2. 아래의 출력 결과가 아래와 같이 나오도록 프로그래밍 하시오.
+Circle circle = new Circle(10);
+Object obj = new Circle(10);
+System.out.println(obj);
+=================
+출력: 넓이는 100 입니다.
+
+class Circle extends Object {
+	private int radius;
+	Circle(int radius){
+		this.radius=radius;
+	}
+	int getArea() {
+		return radius*radius*(int)Math.PI;
+	}
+	public String toString() {
+		return "넓이는 "+getArea()+" 입니다.";
+	}
+}
+
+ class Sum {
+	public static void main(String[] args) {
+		
+		
+		Circle circle = new Circle(10);
+		Object obj = new Circle(10);
+		System.out.println(obj);
+	} 
+
+}
+
+3.Object 클래스에 대하여 설명하시오.
+모든 클래스는 object 클래스를 상속한다. 함수 오버라이딩이 가능하므로 모든 클래스는 옵젝트클래스를 사용할 수 있따.
+.
+4.아래와 같이 출력을 하는 이유에 대하여 설명하시오.
+Circle circle = new Circle(10);
+System.out.println(circle);
+===============
+Circle@15db9742
+circle은 new에 의해 객체생성을 함. 그 결과 circle은 Circle의 주소를 가지고 있다.
+
+6.@Override 에 대하여 설명하시오. 
+@Override 아래의 메소드를 오버라이딩 할 것이라 알려줌.( 상위 클래스의 메소드를 오버라이딩)
+class ChildAdder extends PrentAdder {
+@Override
+public double add(double a,double b) {
+System.out.println("덧셈을 진행합니다."
+}
+
+7.interface 에 대하여 설명하시오.
+1. 자식이 구현한다. 
+ex) interface a 
+    class b implements a {
+2. 추상메소드이다. == 몸체가 존재하지 않는다.
+ex) interface a {
+public void print(String doc);
+}
+
+-interface에 올수 있는 두가지는? 
+추상메소드, 디폴트 메소드. static 메소드
+
+8.abstract 키워드에 대하여 설명하시오. 
+"자식이 구현한다."
+1. 동시에 상속과 구현이 가능하다.
+2. 둘 이상의 인터페이스 구현 가능
+ex) class Robot extends Machine implements Movable, Running,--

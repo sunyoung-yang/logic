@@ -1,0 +1,127 @@
+1. 아래의 메모리를 정확히 그리시오.
+		Rectangle[] recArr = new Rectangle[3];
+		Scanner scanner= null;
+		
+		for(int i=0;i<3;i++) {
+			scanner = new Scanner(System.in);
+			int width = scanner.nextInt();
+			int height = scanner.nextInt();
+			recArr[i] = new Rectangle(width, height);
+		}
+		
+		
+		Rectangle maxRec = Rectangle.getMaxRec(recArr);
+
+=======================
+public static Rectangle getMaxRec(Rectangle[] recArr) {
+		Rectangle maxRec = recArr[0];
+		
+		for(Rectangle rec: recArr) {			
+			if(maxRec.getArea() < rec.getArea()) {
+				maxRec = rec;
+			}		
+		}
+		
+		for(int i=0 ; i <recArr.length; i++) {			
+			if(maxRec.getArea() < recArr[i].getArea()) {
+				maxRec = recArr[i]; 
+			}		
+		}		
+		return maxRec;		
+	}
+ 
+2. 예외와 에러의 다른점은?
+예외: '문법 오류'가 아닌 실행 중간에 발생하는 정상적이지 않은 상황!
+오류: 문법적으로 잘못된 상황
+
+3. 예외에 대한 클래스 상속도를 간단하게 그리시오.
+
+4.예전의 계산기 프로그램이 아래와 같이 에러가 난다. 예외처리를 구문을 적용하여, 죽지 않게 만드시오.
+
+첫번째 숫자를 넣으세요:1
+연산기호를 넣으세요:/
+두번째 숫자를 넣으세요:3
+1 / 3 = 0
+continue? Y or N:y
+첫번째 숫자를 넣으세요:1
+연산기호를 넣으세요:/
+두번째 숫자를 넣으세요:0
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at Calculator.execute(Calculator.java:34)
+	at CalculatorTest.main(CalculatorTest.java:69)
+
+
+class Calculator{
+	
+	public void execute() {
+		int num1,num2;
+		int result=0;
+	
+	while(true) {
+		String op;
+		char yn;
+		Scanner sc = new Scanner(System.in);
+		try {
+		System.out.println("첫번째 숫자를 넣으세요: ");
+		num1=sc.nextInt();
+		System.out.println("연산기호를 넣으세요:");
+		op=sc.next();
+		System.out.println("두번째 숫자를 넣으세요: ");
+		num2=sc.nextInt();
+			
+		switch(op) {
+		
+		case "+":
+			 result=num1+num2;
+			 break;
+		case "-":
+			 result=num1-num2;
+			 break;
+		case "*":
+			result=num1*num2;
+			break;
+		case "/":
+			 result=num1/num2;
+			 break;
+		default:
+			break;
+		}
+		System.out.println(result);
+		System.out.println("계속 할거니?");
+		yn=sc.next().charAt(0);
+		if(yn =='y'|| yn=='Y')
+			continue;
+		else
+			break;
+		}
+		catch(ArithmeticException e) {
+			e.getMessage();
+		}
+		
+		System.out.println("프로그램 종료");
+		break;
+	}
+	}
+}
+public class CalculatorTest1 {
+	
+	public static void main(String[] args) {
+		Calculator cal = new Calculator();
+        cal.execute();
+	}
+}
+
+5.예외처리 에서, 아래의 용어를 설명하시오.
+-checked Excetpion이란 unchecked Exception이란?
+checked Excetpion : 반드시 예외 처리를 해야하며, 대표 Exception은 IOException이 있다.
+		try-catch나 throws 를 통해서 호출한 메서드로 예외를 던저야 함.
+unchecked Exception : 예외처리 하지 않아도 되며, 대표 Exception은 NullPointerException이 있다.(인혜씨 참조)
+
+-finally
+finally문은 무조건 1번은 실행된다. 
+성공:  try -> finally
+실패: try->catch-> finally
+-throws
+1. 함수 옆에서 쓸 수 있다.
+2. 여러개를 정의할 수 있다.
+3. 에러를 해당함수에 던져(전가한다.)

@@ -1,0 +1,82 @@
+1.다형성이란?
+Polymolphism이라 하며 부모 클래스는 많은 자식 클래스에 형변환없이 상속이 가능하다.
+
+2. 아래의 메모리를 그리시오.
+class MobilePhone {
+    protected String number;
+    
+    public MobilePhone(String num) {
+        number = num;
+    }    
+    public void answer() {
+        System.out.println("Hi~ from " + number);
+    }
+}
+
+class SmartPhone extends MobilePhone { 
+    private String androidVer;
+    
+    public SmartPhone(String num, String ver) {
+        super(num);
+        androidVer = ver;
+    }    
+    public void playApp() {
+        System.out.println("App is running in " + androidVer);
+    }
+}
+=======================================
+	MobilePhone phone = new SmartPhone("010-555-777", "Nougat");
+    	phone.answer();    	
+    	SmartPhone s = (SmartPhone)phone;    	
+    	s.playApp();
+
+2.is-a 관계와 has-a 관계에 대하여 설명하시오.
+is - a 관계 : 상속으로 표현!
+(부모 = 자식) 하위 클래스는 상위 클래스의 모든 특성을 지닐 뿐만 아니라 하위 클래스만의 추가적인 특성을 가질 수 있다.
+
+has-a 관계 : 데이터멤버로 표현!  ex) class Computer { Cpu cpu; }
+
+3.메소드 오버로딩과 오버라이딩의 차이점은?
+- 메소드 오버로딩은 같은 클래스 내에서 같은 이름을 이용하여 상황에 따라 생성자를 이용하여 호출
+- 메소드 오버라이딩은 상속 관계! 다른 클래스지만 함수 이름, 인자 가 같지만 '바디부분'만 다르다. 변수는 오버라이딩 못해.
+
+4 책 323 page 14-1번
+
+class Car{
+	static int gasolineGauge;
+	public Car(int gasolineGauge){
+		this.gasolineGauge=gasolineGauge;
+	}
+}
+class HybridCar extends Car{
+	static int electricGauge;
+	public HybridCar(int gasolineGauge,int electricGauge){
+		super(gasolineGauge);
+		this.electricGauge=electricGauge;
+	}
+}
+class HybridWaterCar extends HybridCar {
+
+	static int waterGauge;
+	
+	public HybridWaterCar(int gasolineGauge,int electricGauge,int waterGauge) {
+		super(gasolineGauge,electricGauge);
+		this.waterGauge=waterGauge;
+	}
+	
+	 static public void ShowCurrentGauge() {
+		System.out.println("잔여 가솔린: "+gasolineGauge);
+		System.out.println("잔여 전기량: "+electricGauge);
+		System.out.println("잔여 워터량: "+waterGauge);
+	}
+	public static void main(String[] args) {
+		HybridWaterCar hy = new HybridWaterCar(5,5,5);
+		hy.ShowCurrentGauge();
+	}
+}
+
+5.instanceof 연산자에 대하여 설명하시오. 
+(객체 instanceof 참조변수) 구성. 
+참조변수가 참조하는 인스턴스의 '클래스'나 참조하는 인스턴스가 '상속하는 클래스'를 묻는 연산자.
+
+6.남는 시간은 어제 프로그래밍 모두 중요합니다.(시간내에 풀수 있도록 계속 연습 부탁드리겠습니다.)

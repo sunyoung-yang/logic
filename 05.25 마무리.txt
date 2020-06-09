@@ -1,0 +1,106 @@
+1. static 함수에 인스턴스 라면(변수,함수)이 올수 없는 이유?
+
+static 함수와 인스턴스 함수는 메모리 생성 시간이 다르기 때문이다.(시간차가 난다.)
+static의 경우 바로 올라가는 반면, 인스턴스 함수는 객체선언(new)를 해야 올라간다.
+
+2. 클래스 변수, 공유변수, static 변수를 각각의 의미를 설명하시오.
+모두 static 변수를 나타낸다.
+
+3. 클래스 함수는 어떠한 경우에 만들어 주는 것이 좋은가?
+단순 기능 제공을 목적/ 인스턴스 변수와 관련지을 이유가 없는 메소드들을 선언
+
+4. 클래스 변수는 어떠한 경우에 만들어 주는 것이 좋은가?
+인스턴스 간에 데이터 공유가 필요한 상황에서 클래스 변수를 선언한다.
+
+5.금일 배운 CardTest 의 메모리 영역을 그리시오(외우세요).
+
+6.다음을 프로그래밍 하시오.
+
+Circle c1 = new Circle(6);
+Circle c2 = new Circle(7);
+Circle c3 = new Circle(8);
+
+Circle max = Circle.maxCircle(c1,c2,c3);
+
+System.out.println(max.radius);
+
+======================
+출력 : 8
+
+class Circle{
+	
+	int radius;
+	
+	Circle(int radius){
+		this.radius=radius;
+	}
+	 
+	static Circle maxCircle(Circle a,Circle b,Circle c) {
+		
+		Circle max=null;
+		
+		if((a.radius>b.radius)&&(a.radius>c.radius)) {
+			max=a;
+		} else if((b.radius>a.radius) && (b.radius>c.radius)) {
+			max=b;
+		}else {
+			max=c;
+		}
+		
+		return max;
+	}
+}
+
+class CircleMain{
+	
+	public static void main(String[] args) {
+	Circle c1 = new Circle(6);
+	Circle c2 = new Circle(7);
+	Circle c3 = new Circle(8);
+
+	Circle max = Circle.maxCircle(c1,c2,c3);
+	
+	System.out.println(max.radius);
+	}
+}
+
+
+7. 컴파일러가 자동으로 하는거 2가지는?
+디폴트 함수 생성, java.lang 자동 생성
+
+8.다음을 프로그래밍 하시오
+Sysout.out.println(MyCalculator.add(1, 2));	
+Sysout.out.println(MyCalculator.min(1, 2));
+
+출력: 
+3
+-1
+
+class MyCalculator{
+	
+	 private int a;
+	private int b;
+	
+	MyCalculator(int a,int b){
+		this.a=a;
+		this.b=b;
+	}
+	
+	static int add(int a,int b) {
+		return a+b;
+	}
+	
+	static int min(int a,int b) {
+		return a-b;
+	}
+}
+
+ class MyCalculatorMain {
+
+	public static void main(String[] args) {
+
+		System.out.println(MyCalculator.add(1, 2));	
+		System.out.println(MyCalculator.min(1, 2));
+		
+	}
+}

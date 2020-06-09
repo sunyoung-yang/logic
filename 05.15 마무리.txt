@@ -1,0 +1,103 @@
+1. 80 과 90 중 큰수를 출력하는 프로그램을 작성하시오.
+	int a=80;
+	int b=90;
+	if(a<b) {
+		System.out.println("80과 90 중 큰 수는 "+ b + " 입니다.");
+	}
+	else {
+		System.out.println("80과 90 중 큰 수는 "+ a + " 입니다.");
+	}
+
+2. 국어 70, 수학 60 ,영어 70 의 총점과 평균을 출력하고,
+평균에 대한 수우미양가를 출력하는 프로그램을 작성하시오.
+
+	int korean=70;
+	int math=60;
+	int english=70;
+	int sum= korean+ math+english;
+	int avg =sum/3;
+	System.out.println("세 과목의 총점은 " + sum + "점, "+"평균은 "+ avg + "점 입니다.");
+		
+	if(avg>=90 && avg>=100) {
+		System.out.println(" '수' 입니다.");
+	}
+	else if(avg>=80 && avg<90) {
+		System.out.println(" '우' 입니다.");
+	}
+	else if(avg>=70 && avg<80) {
+		System.out.println(" '미' 입니다.");
+	}
+	else if(avg>=60 && avg<70) {
+		System.out.println(" '양' 입니다.");
+	}
+	else {
+		System.out.println(" '가' 입니다.");
+	}
+=>결과값: 세 과목의 총점은 200점, 평균은 66점 입니다. '양' 입니다.
+
+
+3.변수 3개를 선언후 값을 할당 하여, 3개중 MAX 값을 출력하는 프로그램을 작성하시오.
+
+	int a=100000;
+	int b=2000;
+	int c=30;
+
+	max=0;
+		
+	if(a>=b && a>=c) {
+		max=a;
+	}
+	else if(b>=a && b>=c ){
+		max=b;
+	}
+	else  {
+		max=c;
+	}
+	System.out.println("가장 큰 수 : " +max);
+
+4. switch 문의 동작 방식에 대하여 설명하시오.(걸어서 하늘까지)
+case1: case2: 형태로 n의 값에 맞는 값을 나타내는데, 
+n의 값에 맞지 않는 수를 집어넣으면 기본값이 나가거나 에러 발생.
+이때 case문 마다 break;를 설정하여 에러 방지.
+
+5. do while 과 while 문의 차이는?
+do while문은 조건문이 뒤에 있어서 무조건 한번은 읽어야 하고, 
+while 문은 조건이 앞에 있어서 조건이 맞지 않으면 그냥 빠져나올 수 있다.
+
+6. for 문의 실행 순서를 설명하시오.
+for문에 대한 조건을 실행한 후 조건에 맞을 때까지 반복하고,
+조건을 넘어서면 for문을 빠져나와 결과값 표출.
+
+7.do while 문과 while 문을 이용 하여, 9단을 찍으시오.
+[do while]
+
+	int num=1;
+	do {
+		System.out.println("9 X " + num + "= " + num*9);
+		num++;
+	} while(num<=10);
+[while]
+
+	int num=1;
+	while(num<=10) {
+		System.out.println("9 X " + num + "= " + num*9);		
+	num++;
+	}
+		
+
+8.구구단 6단 중 짝수만(6*2, 6*4, 6*6,6*8) 찍으시오.
+
+	for(int i=1;i<=10;i=i++) {
+		if(i%2==0) {
+			System.out.println("6 X " + i + "= " + i*6 );
+		}
+	
+	}
+
+[or]
+	for(int i=2;i<=10;i=i+2) {
+	
+		System.out.println("6 X " + i + "= " + i*6 );
+		}
+
+	

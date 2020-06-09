@@ -1,0 +1,181 @@
+1. 1.함수의 구성요소 4가지에 대하여 설명하시오.
+
+		int add(num1,num2) 
+		리턴 타입 / 함수 이름(파라미터1,파라미터2)
+		
+		int re= num1 + num2;   //파라미터 적용
+		return re;			//리턴 값 변환
+
+
+2. 함수 구현과, 함수 호출의 다른 점은 무엇인가요?
+함수 구현은 함수를 만드는 거
+함수 호출은 만든 함수를 사용하는 거
+
+3. 함수 선언이란?
+함수를 만드는 거
+
+4. return 의 두가지 의미는?
+1. 함수를 종료
+2. 함수 값을 반환
+
+5. 국어, 영어 수학 점수변수 선언후 평균과 합계를 출력하고 수우미양가를 출력하는 프로그램을 작성하시오(외우세요).
+average 함수와 grade 함수는 작성해서 호출할것.
+
+	public static void main(String[] args) {
+		int kor = 70;
+		int eng = 80;
+		int math = 30;
+		
+		System.out.println("평균 : "+ average(kor,eng,math) );
+		System.out.println("등급 : "+ grade(average(kor,eng,math)));
+
+	}
+	
+	public static char grade(double avg) {
+		char score;
+		if(avg>=90) {
+			score= '수';
+		} else if(avg>=80) {
+			score='우';
+		} else if(avg>=70) {
+			score='미';
+		} else if(avg>=70) {
+			score='양';
+		}else {
+			score ='가';
+		}
+		return score;
+	}
+
+	public static double average(int kor,int eng,int math) {
+		
+		double result = (kor+eng+math)/3;
+		return result;
+	}
+}
+
+6. 142 page 문제 1 번 2번 .
+
+7. 정수 하나를 입력 받아 아래와 같은 별찍기를 함수를 만드시오.
+3을 받으면(3층탑)
+*
+**
+***
+4을 입력 받으면(4층탑)
+*
+**
+***
+****
+
+	public static void main(String[] args) {
+	
+	star(4);	
+	}
+	public static int star(int num) {
+	 
+	for(int i=1;i<=num;i++) {
+		for(int j=1;j<=i;j++) {
+		System.out.print("*");
+		}
+		System.out.println();
+	} return num;
+	}
+
+8.정수 하나를 입력 받아 입력받은 수가 8이면 1부터8단까지 구구단 출력하는 함수를 작성하시오.
+
+	public static void main(String[] args) {  
+		gugudan(8);
+	}
+	
+	public static void gugudan(int num) {
+		for(int a =2;a<=num;a++) {
+		System.out.println("---------");
+		for(int b=1;b<=9;b++) {
+			System.out.println(a +" x " + b +" = "+ a*b);
+		}
+			
+		}
+	}
+
+9.정수 하나를 입력받아 1 부터 입력받은 수까지 합을 구하는 함수를 작성하시오.
+
+	public static void main(String[] args) {  
+		number(100);
+	}
+	
+	public static void number (int num) {
+		int sum=0;
+			for(int a=1;a<=num;a++) {
+				sum=sum +a;
+				
+			}System.out.println("합은 : " + sum );
+			
+		}
+
+10.두수를 입력 받아 아래와 같은 함수를 만드시오.
+ 5 와 10을 입력 받을시
+ 5+6+7+8+9+10 의 합을 리턴
+만약 첫번째 입력값이 두번째 입력값보다 같거나 작을경우
+프로그램 에러입니다 출력 하도록 할것.
+
+	public static void main(String[] args) {  
+		getSum(1,3);
+	}
+	
+	public static int getSum(int num1,int num2) {
+		int sum=0;
+		
+		for(int i= num1;i<=num2;i++) {
+			if(num1>num2) {
+				System.out.println("프로그램 에러입니다.");
+			}
+			sum= sum+ i;
+		}
+		System.out.println(sum);
+		return sum;
+		
+	}
+
+11. 두수를 입력 받은후 두수의 최소 공배수를 리턴하는 함수를 만드시오. 두수가 같거나 하나라도 음수이면 프로그램 실행 안됨이라고 출력 할것.
+
+	public static void main(String[] args) {
+		min(5,13);
+	}
+	
+	public static double min(int a,int b) {
+		int num=1;
+		boolean search=false;
+		
+		
+		while(num<1000) {
+			if(a==b || a<0 || b<0) {
+			System.out.println("프로그램 실행 안됨");
+			break;
+			} else if((num%a==0) && (num%b==0)){
+				search=true;
+				System.out.println(num);
+				break;
+			}  
+			
+			num++;
+		}
+		
+		return num;
+		
+  }
+}
+
+12.정수하나를 입력받아 해당 입력받은 수의  구구단 을 출력하시오. 8이면 8단 .. 7이면 7단 .. 
+
+	public static void main(String[] args) {
+		gugudan(5);
+	}
+	
+	public static void gugudan(int num) {
+		
+		for(int a=num;a<=num;a++) {
+			for(int b=1;b<=9;b++) {
+				System.out.println(a +" x " + b +" = "+ a*b);
+			}
+	
+		} 

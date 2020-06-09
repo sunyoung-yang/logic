@@ -1,0 +1,91 @@
+1. 다음을 프로그램 하시오.
+interface Printable { // MS가 정의하고 제공한 인터페이스
+   public void print(String doc);
+}
+ SPrinterDriver 와 LPrinterDriver를 만드시오
+======================
+
+public static void main(String[] args) {
+   String myDoc = "This is a report about...";
+   
+   // 삼성 프린터로 출력
+   Printable prn = new SPrinterDriver();
+   prn.print(myDoc);
+   System.out.println();
+
+   // LG 프린터로 출력
+   prn = new LPrinterDriver();
+   prn.print(myDoc);
+}
+================================================
+출력: From Samsung printer
+This is a report about ...
+
+From LG printer
+This is a report about ...
+-----------------------------------------------------------------------------
+
+interface Printable { 
+	public void print(String doc);
+	}
+			
+class SPrinterDriver implements Printable{
+	@Override
+	public void print(String doc) {
+		System.out.println("From Samsung printer");
+		System.out.println(doc);
+		}
+}
+class LPrinterDriver implements Printable{
+	@Override
+	public void print(String doc) {
+		System.out.println("From LG printer");
+		System.out.println(doc);
+	}
+}
+class Practice{
+		
+	public static void main(String[] args) {
+		  String myDoc = "This is a report about...";
+			   
+	   // 삼성 프린터로 출력
+	  Printable prn = new SPrinterDriver();
+		 prn.print(myDoc);
+		 System.out.println();
+
+	 // LG 프린터로 출력
+	  prn = new LPrinterDriver();
+	  prn.print(myDoc);
+	}
+}
+
+2. interface 문법중 default 에 대하여 설명하시오.
+default 메소드는 구현하는 클래스가 오버라이딩 하지 않아도 된다.
+소스를 추가해야할 경우, interface메소드에 디폴트 메소드를 붙인다.
+ex) 
+interface Printable {
+void print(String doc);
+default void printCMYK(String doc) {}
+}
+
+3.abstract 클래스에 대하여 설명하시오.
+abstract = 자식이 구현!(자식이 구현하게 하기 위해)
+인스턴스 변수와 인스턴스 메소드를 갖지만, 
+이를 상속하는 하위 클래스에 의해서 구현되어야 할 메소드가 하나 이상 있을 경우를 '추상 메소드'라 한다.
+ex)
+public abstract class House {
+	public void methodOne() {
+	System.out.println("method one");
+}
+	public abstract void methodTwo();	//바디 없어!!
+}
+
+public class MyHouse extends House{
+@Override
+public void methodTwo() {
+sysout("method two");
+}  }
+
+4.추상클래스와 interface의 차이는 무엇인가요?
+interface: 선언만 해놓고 함수만 호출할 수 있게 한다. 그 함수에 맞춰서 자손들이 구현해서 표준화를 시키는것
+abstract: 인스턴스 변수를 일반 클래스처럼 생성할 수 있다. 그러나 자기는 구현 안하고 자손이 해라

@@ -1,0 +1,120 @@
+1. 아래의 interface 를 구현하시오.
+interface IGugudan{
+void gugugdan();      //구구단 출력
+}
+--------------------------------------------------
+interface Igugudan{
+	public void gugudan();
+}
+class Gugudan1 implements Igugudan {
+	
+	@Override
+	public void gugudan() {
+		for(int i=2;i<=9;i++) {
+			for(int j=1;j<=9;j++) {
+				System.out.println(i+" x "+j+" = "+ i*j);
+			}
+			System.out.println("========");
+		}
+	}
+}
+class GugudanMain{
+	public static void main(String[] args) {
+	Gugudan1 dan = new Gugudan1();
+		dan.gugudan();
+
+	}
+
+}
+
+2.아래의 interface 를 구현하시오.
+interface IStarPrint{
+	void starPrint(int n); //      
+}
+
+*
+**
+***
+****
+*****
+-------------------------------------------
+interface IstarPrint{
+	public void starPrint(int n);
+	}
+
+class Star implements IstarPrint{
+	
+	public void starPrint(int n){
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<=i;j++) {
+			System.out.print("*");}
+			System.out.println();
+		}
+	}
+}
+public class StarMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Star s = new Star();
+		s.starPrint(6);
+	}
+}
+
+3. wrapper 클래스에 대하여 설명하시오.
+기본형을 표현할 때 따로 선언없이 wrapper함수를 써서 표현할 수 있다.
+
+4.boxing 과 unboxing 에 대하여 설명하시오.
+박싱은 인스턴스의 생성을 통해 이루어지지만 언박싱은 래퍼클래스에 정의된 메소드의 호출을 통해 이루어짐
+
+5.아래의 메모리를 그리고, 컴파일러가 실행하는 구문을 적으시오.
+ Integer num = 10;
+   num++;
+integer은 final String 이라서 한번 초기화하면 바꿀 수 없지만 
+num++에서 새로 객체를 생성하여 수를 변화시켰다
+
+6.오토박싱과 언박싱에 대하여 설명하시오.
+오토 박싱: Integer iObj = new Integer(10);
+오토 언박싱: int num = iObj.intValue();
+ 
+7.461page 20-1 번 푸시오.
+
+
+
+8.가위바위보 게임을 조별로 어떻게 짜면 되는지 논의 하고,가위바위보 게임을 완성하시오. 
+
+public class Rockpaper {
+
+	public static void main(String[] args) {
+		
+		String me;
+		String[] com = {"가위","바위","보"};
+		
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			int i=(int)Math.random()*3;
+			System.out.println("가위 바위 보! \n");
+			me= sc.next();
+			
+			System.out.println("사용자 : "+me+", 컴퓨터: "+com[i]);
+			
+			if(me.equals(com[i])) {
+				System.out.println("무승부");
+			} else if (me.equals("가위") && com.equals("보") ||me.equals("바위")&& com.equals("가위") || me.equals("보")&&com.equals("주먹")) {
+				System.out.println("WIN");
+			} else if (me.equals("가위") && com.equals("주먹") ||me.equals("바위")&& com.equals("보") || me.equals("보")&&com.equals("가위")) {
+				System.out.println("LOSE");
+			}else {
+				System.out.println("잘못 입력하셨어요");
+			}
+			 System.out.println("계속 하실래요? y or n?");
+			 me= sc.next();
+			if(me.equals("y")|| me.equals("Y")) {
+				continue;
+			}else
+				System.out.println("bye");
+				break;
+			}
+		}
+	}

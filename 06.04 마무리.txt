@@ -1,0 +1,110 @@
+1.OS의 역할은?
+소프트웨어를 돌리기 위해 = 메모리 공간을 할당해주기 위해
+
+2.자바 메모리 영역에 대하여 설명하시오.
+-MA: .class에 대한 정보 올리기, static 변수
+-Call stack: 함수, 지역 변수, 매개 변수 (함수 끝나면 사라져)
+-heap: 객체(new) (다른 함수가 참조하고 있기 때문에 유지)
+
+3.Object 클래스가 가지는 각각의 함수는?
+
+4. 아래와 같이 나오도록 프로그래밍 하시오
+==============================
+
+Person person1 = new Person("jeong-pro", 27);
+Person person2 = new Person("jeong-pro", 27);
+
+System.out.println(person1.equals(person2));//true 로 반환
+
+class Person{
+	int age;
+	String name;
+	
+	Person(String name,int age){
+		this.name=name;
+		this.age=age;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if(this.age ==((Person)obj).age && this.name ==((Person)obj).name)
+			return true;
+		else
+			return false;
+	}
+}
+public class PrinterTest1 {
+
+	public static void main(String[] args) {
+	Person person1 = new Person("JEONG-PRO",27);
+	Person person2 = new Person("jeong=pro",27); // 서로 주소 달라
+	
+	System.out.println(person1.equals(person2));
+	}	
+}
+
+5.shallow copy 와 deep copy 차이는 무엇인가?
+copy하려는 대상에 참조형이 있으면 참조형까지 복사해야 한다.\
+
+6.439 19-2 번의 문제를 푸시오.
+
+class Business implements Cloneable{
+	String company;
+	 String work;
+	
+	public Business(String company,String work) {
+		this.company = company;
+		this.work=work;
+	}
+	public void showBusinessInfo() {
+		System.out.println("회사: "+ company);
+		System.out.println("업무: "+ work);
+	}
+	@Override
+	public Business clone() throws CloneNotSupportedException {
+		Business copy = (Business)super.clone();
+		return copy;
+	}
+}
+
+class PersonalInfo implements Cloneable {
+
+	private String name;
+	private int age;
+	private Business bz;
+	
+	public PersonalInfo(String name,int age,String company,String work) {
+		this.name=name;
+		this.age=age;
+		bz = new Business(company,work);
+	}
+	public void showPersonalInfo() {
+		System.out.println("이름: "+name);
+		System.out.println("나이: "+age);
+		bz.showBusinessInfo();
+	}
+	@Override
+	public  PersonalInfo clone() throws CloneNotSupportedException {
+		PersonalInfo cpy = (PersonalInfo)super.clone();
+		cpy.bz=bz.clone();
+		return cpy;
+	}
+}
+
+class PersonalInfoTest{
+	public static void main(String[] agrs) {
+		try {
+		PersonalInfo pi = new PersonalInfo("sena",22,"lg","영업");
+		PersonalInfo cpy=pi.clone();
+		
+			pi.showPersonalInfo();
+			cpy.showPersonalInfo();
+		}
+		catch(CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
+
+7.431page 와 깊은복사의 메모리를 그리시오.
+
