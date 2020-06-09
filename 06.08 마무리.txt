@@ -1,0 +1,75 @@
+1.제네릭을 쓰는 이유는?
+타입체크는 런타임에 하는데 제네릭이 들어오면 컴파일때 타입을 체크하기 때문에 오류 체크 가능
+
+2.496page 문제 21-1 번을 푸시오.
+import javax.swing.Box;
+
+class DBox<L,R>{
+	private L left;
+	private R right;
+	
+	public void set(L o,R r) {
+		left=o;
+		right=r;
+	}
+	public String toString() {
+		return left+" & "+right;
+	}
+	
+}
+class DDBox<U,D>{
+	private U up;
+	private D down;
+	
+	public void set(U u,D d) {
+		up=u;
+		down=d;
+	}
+	public String toString() {
+		return up.toString() +" & "+ down.toString();
+	}
+}
+
+public class HomeMain {
+
+	public static void main(String[] args) {
+		DBox<String,Integer> box1 = new DBox<>();
+		box1.set("apple",25);
+		DBox<String,Integer> box2 = new DBox<>();
+		box2.set("orange",33);
+		DDBox<DBox<String,Integer>,DBox<String,Integer>> ddbox = new DDBox<>();
+		ddbox.set(box1,box2);
+		System.out.println(ddbox);
+	}
+}
+
+3.제넉릭 메소드란?
+클래스 명앞에가 아닌 함수앞에 T가 붙은거
+클래스 전부가 아닌 일부 메소드에 대해서만 제네릭으로 정의 가능
+
+4.아래가 호출되도록 BoxFactory 클래스를 만드시오.
+Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
+Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
+
+class Box1<T>{
+	private T ob;
+	
+	public void set(T o) {
+		ob =o;
+	}
+	public T get() {
+		return ob;
+	}
+}
+class BoxFactory {
+	public static <T> Box1<T> makeBox(T o){
+		Box1<T> box = new Box1<T>();
+		box.set(o);
+		return box;
+	}
+}
+
+5.다음용어를 정리하시오.
+-http: 프로토콜(네트워크 상에서 약속한 통신규약)
+-도메인네임: 숫자로 표현된 IP를 기억하는 것이 상당히 어렵기 때문에 알아보기 쉽게 영문을 사용한 주소체계
+-포트번호: 서비스 번호
