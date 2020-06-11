@@ -1,51 +1,42 @@
-1.581page ¹®Á¦ 23-2 Á¤·ÄÀÇ ±âÁØ Á¤ÇÏ±â
-2.¸ÖÆ¼ÇÁ·Î¼¼½º¿Í ´ÜÀÏ ÇÁ·Î¼¼½ºÀÇ Â÷ÀÌ´Â?
-½Ã°£À» ³ª´©¾î¼­ Ã³¸®ÇÑ´Ù 
-¸ÖÆ¼ÇÁ·Î¼¼½ºÀÇ °æ¿ì ¿©·¯ ÀÛ¾÷À» ½Ã°£À» ³ª´©¾î °¡¸ç Ã³¸®ÇÏ¸ç ´ÜÀÏ ÇÁ·Î¼¼½º´Â ÇÏ³ª¾¿ Ã³¸®ÇÏ¿© ½Ã°£ÀÌ ´À¸®´Ù.
+1.581page ë¬¸ì œ 23-2 ì •ë ¬ì˜ ê¸°ì¤€ ì •í•˜ê¸°
+2.ë©€í‹°í”„ë¡œì„¸ìŠ¤ì™€ ë‹¨ì¼ í”„ë¡œì„¸ìŠ¤ì˜ ì°¨ì´ëŠ”?
+ì‹œê°„ì„ ë‚˜ëˆ„ì–´ì„œ ì²˜ë¦¬í•œë‹¤ 
+ë©€í‹°í”„ë¡œì„¸ìŠ¤ì˜ ê²½ìš° ì—¬ëŸ¬ ì‘ì—…ì„ ì‹œê°„ì„ ë‚˜ëˆ„ì–´ ê°€ë©° ì²˜ë¦¬í•˜ë©° ë‹¨ì¼ í”„ë¡œì„¸ìŠ¤ëŠ” í•˜ë‚˜ì”© ì²˜ë¦¬í•˜ì—¬ ì‹œê°„ì´ ëŠë¦¬ë‹¤.
 
-3. ¾Æ·¡¸¦  Ãâ·ÂÇÏ½Ã¿À.
+3. ì•„ë˜ë¥¼  ì¶œë ¥í•˜ì‹œì˜¤.
 HashMap<Integer, String> map = new HashMap<>();
    map.put(45, "Brown");
    map.put(37, "James");
    map.put(23, "Martin");
 ===================================================
--(¹İº¹ÀÚ ±â¹İ)
-public class Nad {
-	public static void main(String[] args) {
-		
-	HashMap<Integer, String> map = new HashMap<>();
-	   map.put(45, "Brown");
-	   map.put(37, "James");
-	   map.put(23, "Martin");
-	   
-	   Set<Integer> s = map.keySet();
-	   for(Integer n:s)
-		   System.out.print(n.toString()+'\t');
-	   
-	   System.out.println();
-	   for(Iterator<Integer> itr = s.iterator(); itr.hasNext();) {
-		   System.out.print(map.get(itr.next())+ '\t');
-- (for-each¹® ±â¹İ)
-public class Nad {
-	public static void main(String[] args) {
-		
-	HashMap<Integer, String> map = new HashMap<>();
-	   map.put(45, "Brown");
-	   map.put(37, "James");
-	   map.put(23, "Martin");
-	   
-	   Set<Integer> s = map.keySet();
-	   
-	   for(Integer n: s) {
-		   System.out.print(n.toString()+"¹ø : "+map.get(n).toString());
-		   System.out.println();
-	   }
-	}
-}
+-(ë°˜ë³µì ê¸°ë°˜)
+-(for-eachë¬¸ ê¸°ë°˜)
+public class Box {
+       public static void main(String[] args) {
+    	  
+    	   HashMap<Integer, String> map = new HashMap<>();
+    	   
+    	   map.put(45, "Brown");
+    	   map.put(37, "James");
+    	   map.put(23, "Martin");
+    	  
+    	   Set<Integer> ks = map.keySet();
+    	   
+    	   for(Integer n : ks) {
+    		   System.out.print(n.toString()+'\t');
+    	   }System.out.println();
+    	 //----------ë°˜ë³µì-----------------------  
+    	   for(Iterator<Integer> itr = ks.iterator();itr.hasNext();)
+    		   System.out.print(map.get(itr.next())+'\t');
+    	   System.out.println();
+    	 //-----------FOR EACHë¬¸------------------ 
+    	   for(Integer n: ks) {
+    		   System.out.print(map.get(n)+'\t');
+    	   }System.out.println();
 
 
 
-4. ¾Æ·¡¸¦ ±¸Çö ½ÃÅ°±â À§ÇÑ Person °´Ã¼¸¦ ÀÛ¼ºÇÏ½Ã¿À.
+4. ì•„ë˜ë¥¼ êµ¬í˜„ ì‹œí‚¤ê¸° ìœ„í•œ Person ê°ì²´ë¥¼ ì‘ì„±í•˜ì‹œì˜¤.
 TreeSet<Person> tree = new TreeSet<>(new PersonComparator());
    tree.add(new Person("YOON", 37));
    tree.add(new Person("HONG", 53));
@@ -89,7 +80,7 @@ public class ComparatorPerson {
 		      System.out.println(p);
 		}
 }
-5. ¾Æ·¡¸¦ ±â¹İÀ¸·Î ½ºÅÃÀ» ±¸ÇöÇÏ½Ã¿À(Á¶º°ÇĞ½À).
+5. ì•„ë˜ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ìŠ¤íƒì„ êµ¬í˜„í•˜ì‹œì˜¤(ì¡°ë³„í•™ìŠµ).
 
 interface IStack{
     boolean isEmpty();
@@ -126,9 +117,9 @@ public class StackArray implements IStack{
     private int stackArr[];
     
     public StackArray(int stackSize) {
-    	top=-1;		//¿ø·¡ ³»ºÎ°¡ ºñ¾îÀÖ´Ù¸¦ top=-1
+    	top=-1;		//ì›ë˜ ë‚´ë¶€ê°€ ë¹„ì–´ìˆë‹¤ë¥¼ top=-1
     	this.stackSize=stackSize;
-    	stackArr = new int[this.stackSize];//ÀÎ½ºÅÏ½º »ı¼º
+    	stackArr = new int[this.stackSize];//ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
     }
     public boolean isEmpty() {
     	return(top==-1);
@@ -143,7 +134,7 @@ public class StackArray implements IStack{
     		stackArr[++top]=item;
     	System.out.println("inserte item is "+item);
     }
-    public int pop() { //ÃÖ»óÀ§ µ¥ÀÌÅ¸ ÃßÃâ ÈÄ »èÁ¦
+    public int pop() { //ìµœìƒìœ„ ë°ì´íƒ€ ì¶”ì¶œ í›„ ì‚­ì œ
     	if(isEmpty()) {
     		System.out.println("peeking fail stack is empty");
     		return 0;
@@ -154,7 +145,7 @@ public class StackArray implements IStack{
     }
     }
     
-    public int peek() {  //ÃÖ»óÀ§ µ¥ÀÌÅÍ ÃßÃâ
+    public int peek() {  //ìµœìƒìœ„ ë°ì´í„° ì¶”ì¶œ
     	if(isEmpty()) {
     		System.out.println("peeking fail stack is empty");
     		return 0;
