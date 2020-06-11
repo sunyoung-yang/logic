@@ -1,0 +1,213 @@
+1.581page 문제 23-2 정렬의 기준 정하기
+2.멀티프로세스와 단일 프로세스의 차이는?
+시간을 나누어서 처리한다 
+멀티프로세스의 경우 여러 작업을 시간을 나누어 가며 처리하며 단일 프로세스는 하나씩 처리하여 시간이 느리다.
+
+3. 아래를  출력하시오.
+HashMap<Integer, String> map = new HashMap<>();
+   map.put(45, "Brown");
+   map.put(37, "James");
+   map.put(23, "Martin");
+===================================================
+-(반복자 기반)
+public class Nad {
+	public static void main(String[] args) {
+		
+	HashMap<Integer, String> map = new HashMap<>();
+	   map.put(45, "Brown");
+	   map.put(37, "James");
+	   map.put(23, "Martin");
+	   
+	   Set<Integer> s = map.keySet();
+	   for(Integer n:s)
+		   System.out.print(n.toString()+'\t');
+	   
+	   System.out.println();
+	   for(Iterator<Integer> itr = s.iterator(); itr.hasNext();) {
+		   System.out.print(map.get(itr.next())+ '\t');
+- (for-each문 기반)
+public class Nad {
+	public static void main(String[] args) {
+		
+	HashMap<Integer, String> map = new HashMap<>();
+	   map.put(45, "Brown");
+	   map.put(37, "James");
+	   map.put(23, "Martin");
+	   
+	   Set<Integer> s = map.keySet();
+	   
+	   for(Integer n: s) {
+		   System.out.print(n.toString()+"번 : "+map.get(n).toString());
+		   System.out.println();
+	   }
+	}
+}
+
+
+
+4. 아래를 구현 시키기 위한 Person 객체를 작성하시오.
+TreeSet<Person> tree = new TreeSet<>(new PersonComparator());
+   tree.add(new Person("YOON", 37));
+   tree.add(new Person("HONG", 53));
+   tree.add(new Person("PARK", 22));
+
+   for(Person p : tree)
+      System.out.println(p);
+}
+class Person implements Comparable<Person>{
+	 int age;
+	 String name;
+	
+	public Person(String name,int age) {
+		this.name=name;
+		this.age=age;
+	}
+	@Override
+	public String toString() {
+		return name+" : "+age;
+	}
+	@Override
+	public int compareTo(Person p) {
+		return this.age-p.age;
+	}
+}
+class PersonComparator implements Comparator<Person>{
+	public int compare(Person p1,Person p2) {
+		return p2.age-p1.age;
+	}
+}
+public class ComparatorPerson {
+	public static void main(String[] args) {
+		
+	
+		TreeSet<Person> tree = new TreeSet<>(new PersonComparator());
+		   tree.add(new Person("YOON", 37));
+		   tree.add(new Person("HONG", 53));
+		   tree.add(new Person("PARK", 22));
+
+		   for(Person p : tree)
+		      System.out.println(p);
+		}
+}
+5. 아래를 기반으로 스택을 구현하시오(조별학습).
+
+interface IStack{
+    boolean isEmpty();
+    boolean isFull();
+    void push(int item);
+    char pop();
+    char peek();
+    void clear();
+}
+
+public class StackArray implements IStack{
+    
+    private int top;
+    private int stackSize;
+    private int stackArr[];
+
+............
+.........
+
+===================================================
+interface IStack{
+    boolean isEmpty();
+    boolean isFull();
+    void push(int item);
+    int pop();
+    int peek();
+    void clear();
+}
+
+public class StackArray implements IStack{
+    
+    private int top;
+    private int stackSize;
+    private int stackArr[];
+    
+    public StackArray(int stackSize) {
+    	top=-1;		//원래 내부가 비어있다를 top=-1
+    	this.stackSize=stackSize;
+    	stackArr = new int[this.stackSize];//인스턴스 생성
+    }
+    public boolean isEmpty() {
+    	return(top==-1);
+    }
+    public boolean isFull() {
+    	return (top ==this.stackSize-1);
+    }
+    public void push(int item) {
+    	if(isFull()) {
+    		System.out.println("no vacancy");
+    	}else
+    		stackArr[++top]=item;
+    	System.out.println("inserte item is "+item);
+    }
+    public int pop() { //최상위 데이타 추출 후 삭제
+    	if(isEmpty()) {
+    		System.out.println("peeking fail stack is empty");
+    		return 0;
+    }else {
+    	System.out.println("deleted item is"+stackArr[top]);
+    	
+    	return stackArr[--top];
+    }
+    }
+    
+    public int peek() {  //최상위 데이터 추출
+    	if(isEmpty()) {
+    		System.out.println("peeking fail stack is empty");
+    		return 0;
+    	} else {
+    		System.out.println("peeked item is"+stackArr[top]);
+    		
+    		return stackArr[top];
+    	}
+    }
+    public void clear() {
+    	if(isEmpty()) {
+    		System.out.println("stack is already empty");
+    	} else {
+    		top=-1;
+    		stackArr = new int[this.stackSize];
+    		System.out.println("stack is clear");
+    	}
+    }
+    public void printStack() {
+    	if(isEmpty()) {
+    		System.out.println("stack is empty");
+    	}else {
+    		System.out.print("stack elements : ");
+    		for(int i=0;i<=top;i++) {
+    			System.out.println(stackArr[i]+" ");
+    		}
+    		System.out.println();
+    	}
+    }
+public static void main(String[] args) {
+		int stackSize=5;
+		StackArray arrstack = new StackArray(stackSize);
+		
+		arrstack.push('A');
+		arrstack.printStack();
+        
+		arrstack.push('B');
+		arrstack.printStack();
+        
+		arrstack.push('C');
+		arrstack.printStack();
+        
+		arrstack.pop();
+		arrstack.printStack();
+        
+		arrstack.pop();
+		arrstack.printStack();
+        
+		arrstack.peek();
+		arrstack.printStack();
+        
+		arrstack.clear();
+		arrstack.printStack();
+
+}
+	}
