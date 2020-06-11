@@ -1,76 +1,55 @@
   
-1.Collection framework ÀÇ »ó¼Ó °ü°è¸¦ ±×¸®½Ã¿À.
+1.Collection framework ì˜ ìƒì† ê´€ê³„ë¥¼ ê·¸ë¦¬ì‹œì˜¤.
 
-2.List ÀÇ Æ¯Â¡Àº ¹«¾ùÀÎ°¡¿ä?
-1. ÀÎ½ºÅÏ½ºÀÇ ÀúÀå ¼ø¼­¸¦ À¯ÁöÇÑ´Ù.
-2. µ¿ÀÏÇÑ ÀÎ½ºÅÏ½ºÀÇ Áßº¹ ÀúÀåÀ» Çã¿ëÇÑ´Ù.
+2.List ì˜ íŠ¹ì§•ì€ ë¬´ì—‡ì¸ê°€ìš”?
+1. ì¸ìŠ¤í„´ìŠ¤ì˜ ì €ì¥ ìˆœì„œë¥¼ ìœ ì§€í•œë‹¤.
+2. ë™ì¼í•œ ì¸ìŠ¤í„´ìŠ¤ì˜ ì¤‘ë³µ ì €ì¥ì„ í—ˆìš©í•œë‹¤.
 
-3.ArrayList ¿Í LinkedList ÀÇ Â÷ÀÌ´Â?
-ArrayList : ¹è¿­ ±â¹İ ÀÚ·á±¸Á¶(¹è¿­À» ÀÌ¿ëÇÏ¿© ÀÎ½ºÅÏ½º ÀúÀå)
-LinkedList : ¸®½ºÆ® ±â¹İ ÀÚ·á±¸Á¶(¸®½ºÆ®¸¦ ±¸¼ºÇÏ¿© ÀÎ½ºÅÏ½º ÀúÀå)
+3.ArrayList ì™€ LinkedList ì˜ ì°¨ì´ëŠ”?
+ArrayList : ë°°ì—´ ê¸°ë°˜ ìë£Œêµ¬ì¡°(ë°°ì—´ì„ ì´ìš©í•˜ì—¬ ì¸ìŠ¤í„´ìŠ¤ ì €ì¥)
+LinkedList : ë¦¬ìŠ¤íŠ¸ ê¸°ë°˜ ìë£Œêµ¬ì¡°(ë¦¬ìŠ¤íŠ¸ë¥¼ êµ¬ì„±í•˜ì—¬ ì¸ìŠ¤í„´ìŠ¤ ì €ì¥)
 
-4.¾Æ·¡ÀÇ List °´Ã¼¿¡¼­ ¼øÂ÷Àû Á¢±Ù¹æ¹ı 3°¡Áö·Î Ãâ·ÂÇÏ½Ã¿À.
--list°¡ °¡Áö´Â get
-	public static void main(String[] args) {
-	
-		List<String> list = new LinkedList<>();   
-		   
-		   // ÄÃ·º¼Ç ÀÎ½ºÅÏ½º¿¡ ¹®ÀÚ¿­ ÀÎ½ºÅÏ½º ÀúÀå
-		   list.add("Toy");
-		   list.add("Box");
-		   list.add("Robot");
-       
-		   for(int i=0;i<list.size();i++) {
-			   System.out.print(list.get(i)+'\t');
-		   }
-	}
+4.ì•„ë˜ì˜ List ê°ì²´ì—ì„œ ìˆœì°¨ì  ì ‘ê·¼ë°©ë²• 3ê°€ì§€ë¡œ ì¶œë ¥í•˜ì‹œì˜¤.
+public class Box {
+       public static void main(String[] args) {
+    	   List<String> list = new LinkedList<>();   
+    	   
+    	   // ì»¬ë ‰ì…˜ ì¸ìŠ¤í„´ìŠ¤ì— ë¬¸ìì—´ ì¸ìŠ¤í„´ìŠ¤ ì €ì¥
+    	   list.add("Toy");
+    	   list.add("Box");
+    	   list.add("Robot");
+   
+    //--------------get()------------------
+    	   for(int i=0;i<list.size();i++) {
+    		   System.out.print(list.get(i)+'\t');
+    	   }System.out.println();
+    	   
+     //--------------Iterator-----------------
+    	   Iterator<String> itr = list.iterator();
+    	   
+    	   while(itr.hasNext()) {
+    		  System.out.print(itr.next()+'\t');
+    	   }System.out.println();
+    	   
+    	   for(Iterator<String> itr1 = list.iterator();itr1.hasNext();) {
+    		   System.out.print(itr1.next()+'\t');
+    	   } System.out.println();
+    			   
+    //---------------enhanced-------------------
+    		for(String e :list) {
+    			System.out.print(e.toString()+'\t');
+    		}System.out.println();
+       }
 }
-
--enhenced for
-public static void main(String[] args) {
-	
-		List<String> list = new LinkedList<>();   
-		   
-		   // ÄÃ·º¼Ç ÀÎ½ºÅÏ½º¿¡ ¹®ÀÚ¿­ ÀÎ½ºÅÏ½º ÀúÀå
-		   list.add("Toy");
-		   list.add("Box");
-		   list.add("Robot");
-       
-		   for(String li :list)
-			   System.out.print(li+'\t');   
-		   }
-	}
-
--iterator °´Ã¼
-public class Nad {
-
-	public static void main(String[] args) {
-	
-		List<String> list = new LinkedList<>();   
-		   
-		   // ÄÃ·º¼Ç ÀÎ½ºÅÏ½º¿¡ ¹®ÀÚ¿­ ÀÎ½ºÅÏ½º ÀúÀå
-		   list.add("Toy");
-		   list.add("Box");
-		   list.add("Robot");
-       
-		   Iterator<String> itr = list.iterator();
-		   
-		   while(itr.hasNext()) {
-			   System.out.print(itr.next()+'\t');
-			   
-		   }
-		   itr = list.iterator();
-		   }
-	}
 -------------------------------------------
    List<String> list = new LinkedList<>();   
    
-   // ÄÃ·º¼Ç ÀÎ½ºÅÏ½º¿¡ ¹®ÀÚ¿­ ÀÎ½ºÅÏ½º ÀúÀå
+   // ì»¬ë ‰ì…˜ ì¸ìŠ¤í„´ìŠ¤ì— ë¬¸ìì—´ ì¸ìŠ¤í„´ìŠ¤ ì €ì¥
    list.add("Toy");
    list.add("Box");
    list.add("Robot");
 =======================
-5.hasSetÀ» ÀÌ¿ëÇÏ¿© ·Î¶Ç ¹øÈ£¸¦ »Ì¾Æ³»½Ã¿À.
+5.hasSetì„ ì´ìš©í•˜ì—¬ ë¡œë˜ ë²ˆí˜¸ë¥¼ ë½‘ì•„ë‚´ì‹œì˜¤.
 public class Nad {
 
 	public static void main(String[] args) {
@@ -89,14 +68,14 @@ public class Nad {
 		   }
 	}
 
-6.¾Æ·¡¸¦ ÀÎ½ºÅÏ½º ¼ö°¡ 2°¡ ³ª¿Àµµ·Ï ¼öÁ¤ÇÏ½Ã¿À.      
+6.ì•„ë˜ë¥¼ ì¸ìŠ¤í„´ìŠ¤ ìˆ˜ê°€ 2ê°€ ë‚˜ì˜¤ë„ë¡ ìˆ˜ì •í•˜ì‹œì˜¤.      
         HashSet<Num> set = new HashSet<>();
         
         set.add(new Num(7799));
         set.add(new Num(9955));
         set.add(new Num(7799));
 
-        System.out.println("ÀÎ½ºÅÏ½º ¼ö: " + set.size());
+        System.out.println("ì¸ìŠ¤í„´ìŠ¤ ìˆ˜: " + set.size());
 ---------------------------------------------------------
 import java.util.HashSet;
 
@@ -131,26 +110,26 @@ public class Nad {
         set.add(new Num(9955));
         set.add(new Num(7799));
 
-        System.out.println("ÀÎ½ºÅÏ½º ¼ö: " + set.size());
+        System.out.println("ì¸ìŠ¤í„´ìŠ¤ ìˆ˜: " + set.size());
 	}
 }
 
-7.HashSetÀÇ ¿ø¸®¸¦ ¼³¸íÇÏ½Ã¿À.
-hashcode¸¦ ÀÌ¿ëÇÏ¿© µ¿ÀÏ°á°ú°ªÀÌ ³ª¿À´Â °Í³¢¸® ±ºÁıÀ» Çü¼ºÇÏ¿© ±ºÁı³¢¸®  equals¸Ş¼Òµå¸¦ ÀÌ¿ëÇØ ¼­·Î °°Àº ÀÎ½ºÅÏ½ºÀÎÁö Áßº¹À» È®ÀÎÇÑ´Ù.
-ÀÌ¶§ true°ªÀÌ ¸®ÅÏµÇ¸é Áßº¹ÀÌ¹Ç·Î Áßº¹µÈ °ªÀ» ÀúÀåÇÏÁö ¾Ê´Â´Ù.
+7.HashSetì˜ ì›ë¦¬ë¥¼ ì„¤ëª…í•˜ì‹œì˜¤.
+hashcodeë¥¼ ì´ìš©í•˜ì—¬ ë™ì¼ê²°ê³¼ê°’ì´ ë‚˜ì˜¤ëŠ” ê²ƒë¼ë¦¬ êµ°ì§‘ì„ í˜•ì„±í•˜ì—¬ êµ°ì§‘ë¼ë¦¬  equalsë©”ì†Œë“œë¥¼ ì´ìš©í•´ ì„œë¡œ ê°™ì€ ì¸ìŠ¤í„´ìŠ¤ì¸ì§€ ì¤‘ë³µì„ í™•ì¸í•œë‹¤.
+ì´ë•Œ trueê°’ì´ ë¦¬í„´ë˜ë©´ ì¤‘ë³µì´ë¯€ë¡œ ì¤‘ë³µëœ ê°’ì„ ì €ì¥í•˜ì§€ ì•ŠëŠ”ë‹¤.
 
-8.object ÀÇ hashcode ÇÔ¼ö¿¡ ´ëÇÏ¿© ¼³¸íÇÏ½Ã¿À.
-¼­·Î Áßº¹µÇ´Â °ªÀ» ±ºÁıÀ¸·Î Çü¼ºÇÏ¿© ºĞ·ùÇÔ.
+8.object ì˜ hashcode í•¨ìˆ˜ì— ëŒ€í•˜ì—¬ ì„¤ëª…í•˜ì‹œì˜¤.
+ì„œë¡œ ì¤‘ë³µë˜ëŠ” ê°’ì„ êµ°ì§‘ìœ¼ë¡œ í˜•ì„±í•˜ì—¬ ë¶„ë¥˜í•¨.
 
-9.¾Æ·¡ ÅÂ±×¿¡ ´ëÇÏ¿© ¼³¸íÇÏ½Ã¿À.
-- form ÅÂ±× ¹× action ¼Ó¼º¹× method ¼Ó¼º
-form ÅÂ±×: ÆûÀÔ·ÂÇÏ¿© ¼­¹öÁ¢¼Ó
-action: form data¸¦ ¼­¹ö·Î Á¦ÃâÇÒ ¶§ ÇØ´ç µ¥ÀÌÅÍ°¡ µµÂøÇÒ url ¸í½Ã
-method: form data°¡ ¼­¹ö·Î Á¦ÃâµÉ ¶§ »ç¿ëµÇ´Â HTTP ¸Ş¼Òµå
-	 get°ú post°¡ ÀÖÀ½.
-	get : url¿¡ form data¸¦ Ãß°¡ÇÏ¿© ¼­¹ö·Î Àü´Ş
-	post : form data¸¦ º°µµ·Î Ã·ºÎÇÏ¿© ¼­¹ö·Î Àü´Ş
-- checkbox ¿Í radio 
-Ã¼Å©¹Ú½º: ¿É¼ÇÀ» ÀÌ¿ëÇÏ¿© ¾ÆÀÌÄÜÀ» ´­·¶À» ½Ã ¸®½ºÆ®°¡ ¶á´Ù,
-radio´Â µ¿±×¶ó¹Ì Ã¼Å©ÇüÅÂ
+9.ì•„ë˜ íƒœê·¸ì— ëŒ€í•˜ì—¬ ì„¤ëª…í•˜ì‹œì˜¤.
+- form íƒœê·¸ ë° action ì†ì„±ë° method ì†ì„±
+form íƒœê·¸: í¼ì…ë ¥í•˜ì—¬ ì„œë²„ì ‘ì†
+action: form dataë¥¼ ì„œë²„ë¡œ ì œì¶œí•  ë•Œ í•´ë‹¹ ë°ì´í„°ê°€ ë„ì°©í•  url ëª…ì‹œ
+method: form dataê°€ ì„œë²„ë¡œ ì œì¶œë  ë•Œ ì‚¬ìš©ë˜ëŠ” HTTP ë©”ì†Œë“œ
+	 getê³¼ postê°€ ìˆìŒ.
+	get : urlì— form dataë¥¼ ì¶”ê°€í•˜ì—¬ ì„œë²„ë¡œ ì „ë‹¬
+	post : form dataë¥¼ ë³„ë„ë¡œ ì²¨ë¶€í•˜ì—¬ ì„œë²„ë¡œ ì „ë‹¬
+- checkbox ì™€ radio 
+ì²´í¬ë°•ìŠ¤: ì˜µì…˜ì„ ì´ìš©í•˜ì—¬ ì•„ì´ì½˜ì„ ëˆŒë €ì„ ì‹œ ë¦¬ìŠ¤íŠ¸ê°€ ëœ¬ë‹¤,
+radioëŠ” ë™ê·¸ë¼ë¯¸ ì²´í¬í˜•íƒœ
 
