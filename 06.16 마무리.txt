@@ -1,0 +1,27 @@
+  
+1.jsp 가 WAS 에서 돌아가는 원리를 설명하시오.
+.jsp file -> Java file -> class file
+탐켓이 .jsp를 자바파일로 만든다. 이때 탐켓은 WAS종류 중 하나이다.
+
+2.아래에 대하여 설명하시오.
+-doGet : 헤더를 통해 정보를 보내고
+-doPost: url을 통해 정보를 보낸다.
+-@WebServlet("/hworld")  /뒤에mapping명을 입력한다.
+-HttpServlet  : 캡슐화
+HttpServlet 클래스에서 사용자 요청을 처리하는 doGet/doPost 메소드는 
+모두 HttpServletRequest와 HttpServletResponse객체를 매개변수로 가지고 있다.
+(HttpServletRequest와 HttpServletResponse는 유저와 서블릿을 이어주는 역할)
+
+3.float 와 overflow에 대하여 설명하시오.
+float요소를 부여한 다음 요소는 float영향을 받은 요소가 차지하는 위치만 제외하고 나머지 공간을 채운다.
+그래서 공간을 벗어났을때 overflow는 어떻게 처리할지 정하는 속성이다.
+
+4.아래의 속성을 설명하시오.
+-block: 전후 줄바꿈이 들어간다. 다른 요소들을 다른 줄로 밀어내고 혼자 한줄을 차지
+-inline: display속성이 inline으로 지정된 요소는 줄바꿈없이 한줄에 나란히 배치
+-inline-block: 전후 줄바꿈없이 한줄에 다른 요소들과 나란히 배치된다. 
+	     (width,height,margin,padding속성의 상하간격 지정가능)
+-display:none : 공백을 남기지 않고 사라짐
+-visivility:hidden : 공간을 남기지만 내용물은 보이지 않음
+
+5.13-1 구현 하시오.
