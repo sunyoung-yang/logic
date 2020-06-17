@@ -1,27 +1,45 @@
   
-1.jsp �� WAS ���� ���ư��� ������ �����Ͻÿ�.
-.jsp file -> Java file -> class file
-Ž���� .jsp�� �ڹ����Ϸ� �����. �̶� Ž���� WAS���� �� �ϳ��̴�.
+1.jsp 가 WAS 에서 돌아가는 원리를 설명하시오.
+[JSP 아키텍처]
+.jsp file (개발자는 여기까지 작성) -> Java file - (컴파일) -> class file
+jsp는 서블릿(자바 파일)으로 변환되어 실행.
 
-2.�Ʒ��� ���Ͽ� �����Ͻÿ�.
--doGet : ����� ���� ������ ������
--doPost: url�� ���� ������ ������.
--@WebServlet("/hworld")  /�ڿ�mapping���� �Է��Ѵ�.
--HttpServlet  : ĸ��ȭ
-HttpServlet Ŭ�������� ����� ��û�� ó���ϴ� doGet/doPost �޼ҵ�� 
-��� HttpServletRequest�� HttpServletResponse��ü�� �Ű������� ������ �ִ�.
-(HttpServletRequest�� HttpServletResponse�� ������ �������� �̾��ִ� ����)
+[MVP패턴]
+클라이언트 - (request) -> Controller/servlet     ->  Model/DB   -> Controller ->   View/jsp - (response) -> 클라이언트 
+		       무엇을 작업해야 하는 지 	      사용자에게 보여줄 
+		       판단 후 해당 컴포넌트에	      해당 jsp파일에게
+		       넘김			      작업 결과를 넘김
 
-3.float �� overflow�� ���Ͽ� �����Ͻÿ�.
-float��Ҹ� �ο��� ���� ��Ҵ� float������ ���� ��Ұ� �����ϴ� ��ġ�� �����ϰ� ������ ������ ä���.
-�׷��� ������ ������� overflow�� ��� ó������ ���ϴ� �Ӽ��̴�.
+톰캣:      request 객체 생성							     response 객체 생성
 
-4.�Ʒ��� �Ӽ��� �����Ͻÿ�.
--block: ���� �ٹٲ��� ����. �ٸ� ��ҵ��� �ٸ� �ٷ� �о�� ȥ�� ������ ����
--inline: display�Ӽ��� inline���� ������ ��Ҵ� �ٹٲ޾��� ���ٿ� ������ ��ġ
--inline-block: ���� �ٹٲ޾��� ���ٿ� �ٸ� ��ҵ�� ������ ��ġ�ȴ�. 
-	     (width,height,margin,padding�Ӽ��� ���ϰ��� ��������)
--display:none : ������ ������ �ʰ� �����
--visivility:hidden : ������ �������� ���빰�� ������ ����
+2.아래에 대하여 설명하시오.
+-doGet : header를 이용해 정보가 전송되어 보안에 강함.
+-doPost: url을 통해 정보를 보내 보안에 약하다.
+-@WebServlet("/hworld") : 어노테이션을 이용한 서블릿 맵핑
+			WebServlet이라는 어노테이션 키워드로 클래스의 닉네임(/hworld) 설정.
+			닉네임은 웹브라우저에서 접근할 때 이용됨.
+-HttpServlet  :Servlet 클래스는 기본적으로 HttpServlet 클래스를  상속 받음.
 
-5.13-1 ���� �Ͻÿ�.
+ Servlet (Interface)
+	|
+GenericServlet (abstract)
+	|
+     HttpServlet
+
+HttpServlet 클래스에서 사용자 요청을 처리하는 doGet/doPost 메소드는 
+모두 HttpServletRequest와 HttpServletResponse객체를 매개변수로 가지고 있다.
+(HttpServletRequest와 HttpServletResponse는 유저와 서블릿을 이어주는 역할)
+
+3.float 와 overflow에 대하여 설명하시오.
+float요소를 부여한 다음 요소는 float영향을 받은 요소가 차지하는 위치만 제외하고 나머지 공간을 채운다.
+그래서 공간을 벗어났을때 overflow는 어떻게 처리할지 정하는 속성이다.
+
+4.아래의 속성을 설명하시오.
+-block: 전후 줄바꿈이 들어간다. 다른 요소들을 다른 줄로 밀어내고 혼자 한줄을 차지
+-inline: display속성이 inline으로 지정된 요소는 줄바꿈없이 한줄에 나란히 배치
+-inline-block: 전후 줄바꿈없이 한줄에 다른 요소들과 나란히 배치된다. 
+	     (width,height,margin,padding속성의 상하간격 지정가능)
+-display:none : 공백을 남기지 않고 사라짐
+-visivility:hidden : 공간을 남기지만 내용물은 보이지 않음
+
+5.13-1 구현 하시오.
