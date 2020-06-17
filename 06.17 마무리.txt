@@ -48,3 +48,51 @@ relative: 위치 계산을 할 때 static의 원래 위치부터 계산한다.
 
 7.실전 HTML5 & CSS동영상강좌_12강_CSS 속성-III.pptx
 에 있는 화면을 구현하시오.
+<style>
+		div{
+			margin:0 auto;
+			border:1px solid #cccccc;
+			width:800px;
+			overflow:hidden;	
+			padding:10px;
+			box-sizing:border-box;		
+		}
+		div p:nth-child(1){
+		text-decoration:underline;
+		font-size:2em;
+		text-align:center;		
+		line-height:100px;
+		height:100px;
+		}
+		div p:nth-child(2){
+		text-align:left;
+		font-size:1.5em;
+		}
+		div p:nth-child(4){
+		text-align:right;
+		font-size:1.5em;
+		}
+		div p:nth-child(6){
+		text-align:center;
+		font-size:40px;
+		height:50px;
+		line-height:50px;
+		}
+		
+		div p:nth-child(6) a{
+		text-decoration:none;
+	
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		<p>HTML5, CSS3 Document</p>
+		<p>To. all member</p>
+		<p>html5, css5 study is very easy</p>	
+		<p>from.sba</p>
+		<hr/>
+       <p><a href="http://sba.seoul.kr" target="_blank">서울산업진흥원</a></p>
+	
+	</div>
