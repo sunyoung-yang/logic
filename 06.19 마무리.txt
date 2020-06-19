@@ -1,0 +1,26 @@
+1.쿠키란 무엇인가?
+로그인 시 클라이언트는 서버에 헤더에 정보를 담아 요청한다. 
+이에 서버는 해당 데이터를 파싱하며 키와 밸류를 담은 응답을 클라이언트에게 다시 보낸 후 연결을 끊는다.
+그후 다시 클라이언트가 다음 행동을 할 때 쿠키가 포함된 정보가 서버에 들어오는데 이때 쿠키가 연결성을 유지해 주어 로그인이 지속되는 것이다.
+
+2.액션태그에 대하여 설명하시오.
+jsp페이지 내에서 어떤 동작을 하도록 지시하는 태그이다.(페이지 이동, 페이지 include 등)
+
+3.forward 와 redirect의 차이는?
+forward  : 웹 브라우저에는 최초 호출한 URL만 표시되고, 이동한 페이지의 URL 정보는 볼 수가 없다.
+	동일 web container에 있는 페이지로만 이동이 가능하다.
+	현재 실행중인 페이지와 forward에 의해 호출될 페이지는 reques, response객체를 공유한다.
+
+redirect : web container는 redirect 명령이 들어오면 웹 브라우저에게 다른 페이지로 이동하라 명령을 내린다.
+	새로운 페이지에서는 request,response객체가 새롭게 생성된다.
+	웹 브라우저는 url을 지시된 주소로 바꾸고 그 주소로 이동한다.
+ 
+4.jsp_13_2_ex1_cookieex를 실습하고 외웁시다.
+
+
+5.job 이 메니져 이고 부서번호가 10인 사람은?
+SELECT * FROM EMP WHERE JOB='MANAGER'AND DEPTNO=10;
+
+5.job 이 메니져 or 부서번호가 10인 사람은?
+SELECT * FROM EMP WHERE JOB='MANAGER' OR DEPTNO=10;
+
