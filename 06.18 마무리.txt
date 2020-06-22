@@ -1,26 +1,26 @@
-1.¾Æ·¡ÀÇ ¿ë¾î¿¡ ´ëÇÏ¿© ¼³¸íÇÏ½Ã¿À.
--Áö½ÃÀÚ: À¥ ÄÁÅ×ÀÌ³Ê°¡ jspÆäÀÌÁö¸¦ servlet Å¬·¡½º·Î º¯È¯ÇÒ ¶§ ÇÊ¿äÇÑ Á¤º¸¸¦ ±â¼úÇÏ±â À§ÇØ »ç¿ë.
-	ÆäÀÌÁöÀÇ ¼Ó¼º, Á¤º¸ µîÀ» ¼±¾ð,Áö½ÃÇÏ´Â ¿ªÇÒÀ» ÇÏ¸ç jspÆÄÀÏÀÇ ÃÖ»ó´Ü¿¡ À§Ä¡ÇÑ´Ù.
+1.ì•„ëž˜ì˜ ìš©ì–´ì— ëŒ€í•˜ì—¬ ì„¤ëª…í•˜ì‹œì˜¤.
+-ì§€ì‹œìž: ì›¹ ì»¨í…Œì´ë„ˆê°€ jspíŽ˜ì´ì§€ë¥¼ servlet í´ëž˜ìŠ¤ë¡œ ë³€í™˜í•  ë•Œ í•„ìš”í•œ ì •ë³´ë¥¼ ê¸°ìˆ í•˜ê¸° ìœ„í•´ ì‚¬ìš©.
+	íŽ˜ì´ì§€ì˜ ì†ì„±, ì •ë³´ ë“±ì„ ì„ ì–¸,ì§€ì‹œí•˜ëŠ” ì—­í• ì„ í•˜ë©° jspíŒŒì¼ì˜ ìµœìƒë‹¨ì— ìœ„ì¹˜í•œë‹¤.
 	<%@  %> 
-	page:ÇØ´ç ÆäÀÌÁöÀÇ ÀüÃ¼ÀûÀÎ ¼Ó¼º ÁöÁ¤
-	include: º°µµÀÇ ÆäÀÌÁö¸¦ ÇöÀç ÆäÀÌÁö¿¡ »ðÀÔ <%@ include file="include01.jsp"%>
+	page:í•´ë‹¹ íŽ˜ì´ì§€ì˜ ì „ì²´ì ì¸ ì†ì„± ì§€ì •
+	include: ë³„ë„ì˜ íŽ˜ì´ì§€ë¥¼ í˜„ìž¬ íŽ˜ì´ì§€ì— ì‚½ìž… <%@ include file="include01.jsp"%>
 
--½ºÅ©¸³Æ²¸´: <%  %>  javaÄÚµå¸¦ ÀÔ·Â
-	    ¿ÏÀüÇÑ ÀÚ¹ÙÄÚµå·Î ¼­¹ö´Ü¿¡¼­ Ã³¸®µÇ°í out°´Ã¼³ª <%=À» ÅëÇØ¼­ °á°ú¸¸ Ãâ·ÂµÈ´Ù.
+-ìŠ¤í¬ë¦½í‹€ë¦¿: <%  %>  javaì½”ë“œë¥¼ ìž…ë ¥
+	    ì™„ì „í•œ ìžë°”ì½”ë“œë¡œ ì„œë²„ë‹¨ì—ì„œ ì²˜ë¦¬ë˜ê³  outê°ì²´ë‚˜ <%=ì„ í†µí•´ì„œ ê²°ê³¼ë§Œ ì¶œë ¥ëœë‹¤.
 
--expression: <%= Å¬¶óÀÌ¾ðÆ®¿¡ Ãâ·ÂÇÒ ³»¿ë %>
-	    outÀÌ¶ó´Â ³»Àå°´Ã¼¸¦ ÀÌ¿ëÇÏ¿© Å¬¶óÀÌ¾ðÆ®¿¡ °á°úÃâ·ÂÀ» ÇÑ´Ù.
-	    ÄÚµå¸¦ °£°áÇÏ°Ô ¸¸µé¾î ½ºÅ©¸³Æ²¸´°ú ´Þ¸® ; »ç¿ëÇÒ ¼ö ¾ø¾î
--¼±¾ð: <%!  Àü¿ªº¯¼ö,¸Þ¼Òµå %>
-	½ºÆ®¸³Æ²¸´ÀÇ ÀÚ¹ÙÄÚµå´Â ÇÏ³ªÀÇ ¸Þ¼ÒµåÀÌ±â¿¡ Àü¿ªº¯¼ö¸¦ ¼±¾ðÇÏ°Å³ª »õ·Î¿î ¸Þ¼Òµå¸¦ »ý¼ºÇÒ ¼ö ¾ø´Ù.
-	¶§¹®¿¡ ½ºÆ®¸³Æ²¸´°ú µû·Î ºÐ¸®ÇÏ¿© ¼±¾ðÇÑ´Ù.
+-expression: <%= í´ë¼ì´ì–¸íŠ¸ì— ì¶œë ¥í•  ë‚´ìš© %>
+	    outì´ë¼ëŠ” ë‚´ìž¥ê°ì²´ë¥¼ ì´ìš©í•˜ì—¬ í´ë¼ì´ì–¸íŠ¸ì— ê²°ê³¼ì¶œë ¥ì„ í•œë‹¤.
+	    ì½”ë“œë¥¼ ê°„ê²°í•˜ê²Œ ë§Œë“¤ì–´ ìŠ¤í¬ë¦½í‹€ë¦¿ê³¼ ë‹¬ë¦¬ ; ì‚¬ìš©í•  ìˆ˜ ì—†ì–´
+-ì„ ì–¸: <%!  ì „ì—­ë³€ìˆ˜,ë©”ì†Œë“œ %>
+	ìŠ¤íŠ¸ë¦½í‹€ë¦¿ì˜ ìžë°”ì½”ë“œëŠ” í•˜ë‚˜ì˜ ë©”ì†Œë“œì´ê¸°ì— ì „ì—­ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ê±°ë‚˜ ìƒˆë¡œìš´ ë©”ì†Œë“œë¥¼ ìƒì„±í•  ìˆ˜ ì—†ë‹¤.
+	ë•Œë¬¸ì— ìŠ¤íŠ¸ë¦½í‹€ë¦¿ê³¼ ë”°ë¡œ ë¶„ë¦¬í•˜ì—¬ ì„ ì–¸í•œë‹¤.
 
-2.¹Ìµð¾î Äõ¸®¿¡ ´ëÇÏ¿© ¼³¸íÇÏ½Ã¿À.
-È­¸éÀÇ Å©±â¿¡ µû¶ó ½ºÅ¸ÀÏ ½ÃÆ®¸¦ ´Þ¸®ÇÏ¿© ÀûÀýÇÑ ¸ð¾çÀ» º¸¿©ÁÙ ¼ö ÀÖ´Ù.
+2.ë¯¸ë””ì–´ ì¿¼ë¦¬ì— ëŒ€í•˜ì—¬ ì„¤ëª…í•˜ì‹œì˜¤.
+í™”ë©´ì˜ í¬ê¸°ì— ë”°ë¼ ìŠ¤íƒ€ì¼ ì‹œíŠ¸ë¥¼ ë‹¬ë¦¬í•˜ì—¬ ì ì ˆí•œ ëª¨ì–‘ì„ ë³´ì—¬ì¤„ ìˆ˜ ìžˆë‹¤.
 1. <link>
  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mystyle.css" />
 
-2. ½ºÅ¸ÀÏ ½ÃÆ®³»¿¡¼­ @media
+2. ìŠ¤íƒ€ì¼ ì‹œíŠ¸ë‚´ì—ì„œ @media
 ex)
 @media screen and (max-width: 768px) { 
 	body { 
@@ -28,13 +28,13 @@ ex)
 	} 
 }
 
-3. table ÅÂ±×¸¦ ÀÌ¿ëÇÏ¿© ±¸±¸´ÜÀ» ±¸Çö ÇÏ½Ã¿À.
+3. table íƒœê·¸ë¥¼ ì´ìš©í•˜ì—¬ êµ¬êµ¬ë‹¨ì„ êµ¬í˜„ í•˜ì‹œì˜¤.
 <table border="1">
 	<tr>
 		<% 
 		for(int i=2;i<=9;i++){
 		%>
-	<td><%=i+"´Ü"%></td>
+	<td><%=i+"ë‹¨"%></td>
 		<%
 		}
 		%>
@@ -60,15 +60,18 @@ ex)
 		%>			
 </table>
 
-4.input box ·Î °¡·Î¿Í ¼¼·Î¸¦ ¼­¹ö·Î Àü´ÞÇÏ¿©, ÇØ´ç »ç°¢ÇüÀÇ ³ÐÀÌ¸¦ ±¸ÇÏ´Â À¥ÇÁ·Î±×·¡¹ÖÀ» ÇÏ½Ã¿À.
+4.input box ë¡œ ê°€ë¡œì™€ ì„¸ë¡œë¥¼ ì„œë²„ë¡œ ì „ë‹¬í•˜ì—¬, í•´ë‹¹ ì‚¬ê°í˜•ì˜ ë„“ì´ë¥¼ êµ¬í•˜ëŠ” ì›¹í”„ë¡œê·¸ëž˜ë°ì„ í•˜ì‹œì˜¤.
+##### packageë¥¼ ê°™ì€ ê±¸ë¡œ ë¬¶ìœ¼ì„¸ìš”ã… ã… ã…  ì´ê±°ë•Œë¬¸ì— ì œê°€ ì´í‹€ì„ ê³ ìƒí–ˆì–´ìš”####
 [html]
 	<form action="Rectangle2.jsp" method="post">
-	°¡·Î: <input type="text" name="width" size="5">
-	¼¼·Î: <input type="text" name="height" size="5">
+	ê°€ë¡œ: <input type="text" name="width" size="5">
+	ì„¸ë¡œ: <input type="text" name="height" size="5">
 	<br/>
-	<input type="submit" vaule="Àü¼Û">
+	<input type="submit" vaule="ì „ì†¡">
 	</form>
 [jsp]
+	<%@page import="test.first.Rectangle" %>
+	
 	<body>
 	<%
  	Rectangle rec = new Rectangle();
@@ -76,25 +79,29 @@ ex)
 	String height = request.getParameter("height");
 	double area= rec.getArea(Double.parseDouble(width),Double.parseDouble(width));
 	
-	out.println("»ç°¢ÇüÀÇ ³ÐÀÌ´Â "+area+" ÀÔ´Ï´Ù.");
+	out.println("ì‚¬ê°í˜•ì˜ ë„“ì´ëŠ” "+area+" ìž…ë‹ˆë‹¤.");
 	%>
 	</body>
 [java]
+	package test.first;
+	
 	public Rectangle() {	
 	}
 	public double getArea(double width,double height) {
 		return width*height;
 	}
 
-5.4.input box ·Î °¡·Î¿Í ¼¼·Î¸¦ ¼­¹ö·Î Àü´ÞÇÏ¿©, ÇØ´ç »ï°¢ÇüÀÇ ³ÐÀÌ¸¦ ±¸ÇÏ´Â À¥ÇÁ·Î±×·¡¹ÖÀ» ÇÏ½Ã¿À.
+5.4.input box ë¡œ ê°€ë¡œì™€ ì„¸ë¡œë¥¼ ì„œë²„ë¡œ ì „ë‹¬í•˜ì—¬, í•´ë‹¹ ì‚¼ê°í˜•ì˜ ë„“ì´ë¥¼ êµ¬í•˜ëŠ” ì›¹í”„ë¡œê·¸ëž˜ë°ì„ í•˜ì‹œì˜¤.
 [html]
 	<form action="Rectangle2.jsp" method="post">
-	°¡·Î: <input type="text" name="width" size="5">
-	¼¼·Î: <input type="text" name="height" size="5">
+	ê°€ë¡œ: <input type="text" name="width" size="5">
+	ì„¸ë¡œ: <input type="text" name="height" size="5">
 	<br/>
-	<input type="submit" vaule="Àü¼Û">
+	<input type="submit" vaule="ì „ì†¡">
 	</form>
 [jsp]
+	<%@page import="test.first.Rectangle" %>
+	
 	<body>
 	<%
  	Rectangle rec = new Rectangle();
@@ -103,9 +110,11 @@ ex)
 	String height = request.getParameter("height");
 	double area= rec.getArea(Double.parseDouble(width),Double.parseDouble(width));
 	
-	out.println("»ï°¢ÇüÀÇ ³ÐÀÌ´Â "+area+" ÀÔ´Ï´Ù.");
+	out.println("ì‚¼ê°í˜•ì˜ ë„“ì´ëŠ” "+area+" ìž…ë‹ˆë‹¤.");
 	%>
 [java]
+	package test.first;
+	
 	public Rectangle() {
 		
 	}
