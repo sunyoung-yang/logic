@@ -1,0 +1,106 @@
+1.DB접속을 위한 3개의 객체와 해당 객체를 얻는 방법을 설명하시오.
+connection : DriverManager.getConnection(url, 계정 아이디, 비밀번호); 
+	    connection 객체 생성
+statement : connection.createStatement();
+	   statement객체를 통해 sql문을 실행
+resultSet : statement.executeQuery()
+	  sql문의 결과값을 resultSet객체로 받는다.
+
+2.Statement 객체의 executeUpdate 와 executeQuery() 의 차이는?
+- executeQuery() :  sql문 실행 후 여러 개의 결과값이 생기는 경우
+		수행결과로 ResultSet 객체의 값을 반환한다. (select구문을 수행할 때 사용)
+		resultSet = statement.executeQuery(query);	//resultSet객체에 결과값 담는다.
+
+- executeUpdate : sql문 실행 후 테이블의 내용만 변경되는 경우 사용.
+		수행결과로 Int 타입의 값을 반환
+		INSERT/DELETE/UPDATE 구문에서는 반영된 레코드의 건수를 반환.
+		CREATE/DROP 관련 구문에서는 -1을 반환.
+		
+3.JDBC란?
+java에서 db를 사용할 수 있도록 연결해주는 응용프로그램 인터페이스인 java API이다.
+
+4.emp 의 모든 정보를 가져오는 웹프로그래밍을 하시오.
+조건 1) 테이블로 가운데 정렬 시킬것.
+
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+	<%!
+		Connection connection;
+		Statement statement;
+		ResultSet resultSet;
+	
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String uid = "scott";
+		String upw = "tiger";
+		String query = "select * from emp";
+	%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<table border="1" align="center">
+	<td>사원번호 </td>
+	<td>이름</td>
+	<td>직업</td>
+	<td>MGR</td>
+	<td>입사일</td>
+	<td>연봉</td>
+	<td>comm</td>
+	<td>부서번호</td>
+	<tr>
+	      <%
+		try{
+			
+			Class.forName(driver);	//oracle.jdbc.driver.OracleDriver
+			connection = DriverManager.getConnection(url, uid, upw);	//jdbc:oracle:thin:@localhost:1521:xe
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(query);	//select * from member
+			
+			while(resultSet.next()){
+				
+				String EMPNO = resultSet.getString("EMPNO");
+				String ENAME = resultSet.getString("ENAME");
+				String JOB = resultSet.getString("JOB");
+				String MGR = resultSet.getString("MGR");
+				String hiredate = resultSet.getString("hiredate");
+				String SAL = resultSet.getString("SAL");
+				String COMM = resultSet.getString("COMM");
+				String DEPTNO = resultSet.getString("DEPTNO");
+			
+				%>
+				
+				<td> <%=EMPNO+"<br>" %></td>
+				<td> <%=ENAME+"<br>" %></td>
+				<td> <%=JOB+"<br>" %></td>
+				<td> <%=MGR+"<br>" %></td>
+				<td> <%=hiredate+"<br>" %></td>
+				<td> <%=SAL+"<br>" %></td>
+				<td> <%=COMM+"<br>" %></td>
+				<td> <%=DEPTNO+"<br>" %></td>
+				
+		</tr>
+		<% 				
+			}
+			
+		} catch(Exception e) {
+		} finally {
+			try{
+				if(resultSet != null) resultSet.close();
+				if(statement != null) statement.close();
+				if(connection != null) connection.close();
+			} catch(Exception e){}
+		}
+	%>
+	
+	</table>
+</body>
+</html>
