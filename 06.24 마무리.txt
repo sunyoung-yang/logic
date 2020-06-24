@@ -1,0 +1,228 @@
+1.DTO 란 무엇인가?
+계층간 데이터 교환을 위한 java beans
+순수한 데이터 객체이며 속성과 그 속성에 접근하기 위한 getter/setter 메소드만 가진 클래스이다.
+
+2.DAO 란 무엇인가?
+디비에 접근하는 객체!
+데이터 베이스에 접속해서 데이터 추가,삭제, 수정 등의 작업을 하는 클래스
+
+3.VO란 무엇인가? 
+DTO와 비슷한데 VO는 READ ONLY 속성을 가짐
+
+4.PreparedStatement 와 Statement 의 차이는?
+가장 큰 차이점은 cache의 사용여부이다.
+statement : 매번 쿼리를 수행할때 마다 (쿼리문장 분석-컴파일-실행)
+PreparedStatement : 처음 한번만 삼단계 실행 후 캐시에 담아 재사용한다.
+ 
+5. emp를 VO 객체와 DAO 객체를 만들어, 모두 나타나도록 하시오.
+[MemverDAO.java]
+package edu.bit.ex.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import edu.bit.ex.dto.Member1;
+
+public class MemberDAO {
+		
+	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String uid = "scott";
+	private String upw = "tiger";
+	private String driver = "oracle.jdbc.driver.OracleDriver";
+	
+	public MemberDAO() {
+		try {
+			Class.forName(driver); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<Member1> memberSelect() {
+		ArrayList<Member1> dtos = new ArrayList<Member1>();
+		
+		Connection con =null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "select * from emp";
+		
+	try {
+		con = DriverManager.getConnection(url, uid, upw);
+		stmt = con.createStatement();
+		rs = stmt.executeQuery(sql);
+		
+		while (rs.next()) {					
+			String empno = rs.getString("empno");
+			String ename = rs.getString("ename");
+			String job = rs.getString("job");
+			String mgr = rs.getString("mgr");
+			String hiredate = rs.getString("hiredate");
+			String sal = rs.getString("sal");
+			String comm = rs.getString("comm");
+			String deptno = rs.getString("deptno");
+						
+			Member1 dto = new Member1(empno, ename, job, mgr, hiredate, sal, comm, deptno);
+			dtos.add(dto);
+		}	
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			if(rs != null) rs.close();
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+		return dtos;	
+	}
+}
+[member.jsp]
+
+
+<%@page import="edu.bit.ex.dto.Member1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="edu.bit.ex.dao.MemberDAO"%>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	 </head>
+	<body>
+
+	<%
+		MemberDAO memberDAO = new MemberDAO();
+		ArrayList<Member1> dtos = memberDAO.memberSelect();
+	
+		for(int i=0; i<dtos.size(); i++) {
+			Member1 dto = dtos.get(i);
+			
+			String empno = dto.getEmpno();
+			String ename = dto.getEname();
+			String job = dto.getJob();
+			String mgr = dto.getMgr();
+			String hiredate = dto.getHiredate();
+			String sal = dto.getSal();
+			String comm = dto.getComm();
+			String deptno = dto.getDeptno();
+			
+			out.println("부서번호 : " + empno + ", 이름 : " + ename + ", 직업 : " + job + ", mgr : " + mgr + ",  입사일 : " + hiredate + ",  연봉 : " + sal+",  COMM : " + comm+",  deptno : " + deptno+"<br />" );
+		}
+	%>
+	</body>
+</html>
+[MemberDTO.java]    // Member1.java in Code
+package edu.bit.ex.dto;
+public class Member1 {
+	private String empno;
+	private String ename;
+	private String job;
+	private String mgr;
+	private String hiredate;
+	private String sal;
+	private String comm;
+	private String deptno;
+	
+	public Member1() {}
+
+	public Member1(String empno, String ename, String job, String mgr, String hiredate, String sal, String comm,
+			String deptno) {
+		super();
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
+		this.mgr = mgr;
+		this.hiredate = hiredate;
+		this.sal = sal;
+		this.comm = comm;
+		this.deptno = deptno;
+	}
+
+	public String getEmpno() {
+		return empno;
+	}
+
+	public void setEmpno(String empno) {
+		this.empno = empno;
+	}
+
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public String getMgr() {
+		return mgr;
+	}
+
+	public void setMgr(String mgr) {
+		this.mgr = mgr;
+	}
+
+	public String getHiredate() {
+		return hiredate;
+	}
+
+	public void setHiredate(String hiredate) {
+		this.hiredate = hiredate;
+	}
+
+	public String getSal() {
+		return sal;
+	}
+
+	public void setSal(String sal) {
+		this.sal = sal;
+	}
+
+	public String getComm() {
+		return comm;
+	}
+
+	public void setComm(String comm) {
+		this.comm = comm;
+	}
+
+	public String getDeptno() {
+		return deptno;
+	}
+
+	public void setDeptno(String deptno) {
+		this.deptno = deptno;
+	}
+	
+}
+
+6.DBCP 에 대하여 설명하시오.
+Connection pool이란 connection객체를 미리 만들어 놓고 그것들을 가져다 쓰고 다 쓴 후 반환해 놓는 것이다.
+Connection pool은 DB에 접속하는 객체를 전용으로 하나만 만들고, 모든 페이지에서 그 객체를 호출해서 사용하는 것.
+즉, 커넥션을 하나만 가져오고 그 커넥션을 가져온 객체가 모든 DB와 연결하는 것
+
+7.CARTESIAN PRODUCT 이란
+쿼리의 폼절에 2개 이상의 테이블이 있고, 두 테이블 사이의 유효한 조인 조건이 기술되어 있지 않은 경우,
+두 테이블의 모든 행들이 무조건 결합하여 테이블에 존재하는 행 갯수를 곱한 만큼의 결과값이 반환되는 것
+4행2열 * 2행1열 = 8행3열
+
+8. JOIN 에 대하여 설명하시오.
+여러 테이블에 흩어져 있는 정보 중에서 필요한 정보만 가져와 가상의 테이블 처럼 만들어 보여주는 것
+
+9. group by 에 대하여 설명 하고 group by 의 조건을 주는 방법은?
+사용자가 원하는 조건을 group by로 묶어서 having으로  그룹의 결과를 제한한다.
