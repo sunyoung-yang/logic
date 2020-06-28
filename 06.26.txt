@@ -1,0 +1,250 @@
+1.
+-EmpDTO
+package test4;
+
+public class EmpDTO {
+	private String empno;
+	private String ename;
+	private String job;
+	private String mgr;
+	private String hiredate;
+	private String sal;
+	private String comm;
+	private String deptno;
+	
+	public EmpDTO() {}
+	public EmpDTO(String empno, String ename, String job, String mgr, String hiredate, String sal, String comm,
+			String deptno) {
+		super();
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
+		this.mgr = mgr;
+		this.hiredate = hiredate;
+		this.sal = sal;
+		this.comm = comm;
+		this.deptno = deptno;
+	}
+	public String getEmpno() {
+		return empno;
+	}
+	public void setEmpno(String empno) {
+		this.empno = empno;
+	}
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public String getMgr() {
+		return mgr;
+	}
+	public void setMgr(String mgr) {
+		this.mgr = mgr;
+	}
+	public String getHiredate() {
+		return hiredate;
+	}
+	public void setHiredate(String hiredate) {
+		this.hiredate = hiredate;
+	}
+	public String getSal() {
+		return sal;
+	}
+	public void setSal(String sal) {
+		this.sal = sal;
+	}
+	public String getComm() {
+		return comm;
+	}
+	public void setComm(String comm) {
+		this.comm = comm;
+	}
+	public String getDeptno() {
+		return deptno;
+	}
+	public void setDeptno(String deptno) {
+		this.deptno = deptno;
+	}
+}
+
+-EmpDAO
+package test4;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class EmpDAO {
+	
+	private Context context;
+	private DataSource ds;
+	private Connection cnt;
+	private PreparedStatement pst;
+	private ResultSet rst;
+	
+	public EmpDAO() {
+		try {
+			context = new InitialContext();
+			ds = (DataSource)context.lookup("java:comp/env/jdbc/oracle");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<EmpDTO> memberSelect() {
+		ArrayList<EmpDTO> dtos = new ArrayList<>();
+		
+		String query = "SELECT * FROM emp";
+		
+		try {
+			cnt = ds.getConnection();
+			pst = cnt.prepareStatement(query);
+			rst = pst.executeQuery();
+			
+			while(rst.next()) {
+				String empno = rst.getString("empno");
+				String ename = rst.getString("ename");
+				String job = rst.getString("job");
+				String mgr = rst.getString("mgr");
+				String hiredate = rst.getString("hiredate");
+				String sal = rst.getString("sal");
+				String comm = rst.getString("comm");
+				String deptno = rst.getString("deptno");
+				
+				dtos.add(new EmpDTO(empno, ename, job, mgr, hiredate, sal, comm, deptno));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(rst!=null) rst.close();
+				if(cnt!=null) cnt.close();
+				if(pst!=null) pst.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return dtos;
+	}
+}
+
+- test4.jsp
+<%@page import="test4.EmpDTO"%>
+<%@page import="test4.EmpDAO"%>
+<%@page import="java.util.ArrayList"%>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>Insert title here</title>
+		<style>
+			table tr:nth-child(1) {
+				background-color: #D8BFD8;
+			}
+		</style>
+	</head>
+	<body>
+		<c:set var="dao" value="<%= new EmpDAO() %>" />
+		<c:set var="dtos" value="<%= new ArrayList<EmpDTO>() %>" />
+		<c:set var="dtos" value="${dao.memberSelect()}" />
+		
+		<table border="1">
+			<tr>
+				<td>EMPNO</td>
+				<td>ENAME</td>
+				<td>JOB</td>
+				<td>MGR</td>
+				<td>HIREDATE</td>
+				<td>SAL</td>
+				<td>COMM</td>
+				<td>DEPTNO</td>
+			</tr>
+		<c:forEach var="dto" items="${dtos}">
+			<tr>
+				<td><c:out value="${dto.empno}"/></td>
+				<td><c:out value="${dto.ename}"/></td>
+				<td><c:out value="${dto.job}"/></td>
+				<td><c:out value="${dto.mgr}"/></td>
+				<td><c:out value="${dto.hiredate}"/></td>
+				<td><c:out value="${dto.sal}"/></td>
+				<td><c:out value="${dto.comm}"/></td>
+				<td><c:out value="${dto.deptno}"/></td>
+			</tr>
+		</c:forEach>
+		</table>
+	</body>
+</html>
+
+
+2.
+서버를 프로그래밍할때 역할에 맞게
+Model / View / Controller
+로 나눠서 프로그래밍 하는 기법
+
+
+3.
+1) 모델1
+View와 Controller를 모두 jsp로 작성 ( 객체생성, JDBC )
+
+2) 모델2
+Model => Command / DAO
+View => jsp 
+Controller => 서블릿
+로 나눠서 프로그래밍
+
+
+4.
+bId 게시물 번호 ( 프라이머리 키 )
+bName 게시자 이름
+bTitle 게시물 제목
+bContent 게시물 내용
+bDate 게시물 날짜/시간
+bHit 게시물 조회수 
+
+///////////////
+
+댓글 관련
+bGroup 댓글이 위치한 게시물번호 
+bSetp 세로
+BIndent 가로
+
+세로 / 가로로 나누어서 댓글의 위치를 표현한다
+세로 / 가로 = 0 / 0 ~ 게시물
+세로 data => 댓글의 세로위치( 댓글순서? )
+가로 data => 댓글의 가로위치( 대댓글 )
+
+
+5.
+select job, AVG(sal) from emp GROUP BY job HAVING AVG(sal) > (select AVG(sal) from emp where job='SALESMAN');
+
+
+6.
+select dname, SUM(sal) from emp e, dept d where e.deptno=d.deptno GROUP BY dname
+HAVING SUM(sal) >= ALL (select SUM(sal) from emp GROUP BY deptno);
+
+
+7.
+select empno, ename, sal, grade from emp e, salgrade s where (e.sal BETWEEN LOSAL AND HISAL)
+AND (deptno='10' OR deptno='20' OR deptno='30' OR deptno='40');
+
