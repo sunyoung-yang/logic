@@ -197,13 +197,14 @@ public class EmpDAO {
 </html>
 
 
-2.
+2. MVC란?
 서버를 프로그래밍할때 역할에 맞게
 Model / View / Controller
 로 나눠서 프로그래밍 하는 기법
+client -> controller ->model ->view ->result!
 
 
-3.
+3. 
 1) 모델1
 View와 Controller를 모두 jsp로 작성 ( 객체생성, JDBC )
 
