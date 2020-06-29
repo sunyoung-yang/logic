@@ -1,19 +1,19 @@
-1.°Ô½ÃÆÇÀ» ¸ğµ¨2·Î Â¥±â À§ÇÑ ¼³°èµµ¸¦ ±×¸®½Ã¿À.
+1.ê²Œì‹œíŒì„ ëª¨ë¸2ë¡œ ì§œê¸° ìœ„í•œ ì„¤ê³„ë„ë¥¼ ê·¸ë¦¬ì‹œì˜¤.
 (client - controller - -command -dao-db -view)
 
-2.RequestDispatcherÀÇ ¿ªÇÒÀº?
-RequestDispatcher´Â Å¬¶óÀÌ¾ğÆ®·ÎºÎÅÍ ÃÖÃÊ¿¡ µé¾î¿Â ¿äÃ»À» JSP/Servlet ³»¿¡¼­ 
-¿øÇÏ´Â ÀÚ¿øÀ¸·Î ¿äÃ»À» ³Ñ±â´Â(º¸³»´Â) ¿ªÇÒÀ» ¼öÇàÇÏ°Å³ª, 
-Æ¯Á¤ ÀÚ¿ø¿¡ Ã³¸®¸¦ ¿äÃ»ÇÏ°í Ã³¸® °á°ú¸¦ ¾ò¾î¿À´Â ±â´ÉÀ» ¼öÇàÇÏ´Â Å¬·¡½º
-Áï /a.jsp ·Î µé¾î¿Â ¿äÃ»À» /a.jsp ³»¿¡¼­ RequestDispatcher¸¦ »ç¿ëÇÏ¿© b.jsp·Î ¿äÃ»À» º¸³¾ ¼ö ÀÖ½À´Ï´Ù. 
-¶Ç´Â a.jsp¿¡¼­ b.jsp·Î Ã³¸®¸¦ ¿äÃ»ÇÏ°í b.jsp¿¡¼­ Ã³¸®ÇÑ °á°ú ³»¿ëÀ» a.jspÀÇ °á°ú¿¡ Æ÷ÇÔ½ÃÅ³ ¼ö ÀÖ½À´Ï´Ù.
+2.RequestDispatcherì˜ ì—­í• ì€?
+RequestDispatcherëŠ” í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ìµœì´ˆì— ë“¤ì–´ì˜¨ ìš”ì²­ì„ JSP/Servlet ë‚´ì—ì„œ 
+ì›í•˜ëŠ” ìì›ìœ¼ë¡œ ìš”ì²­ì„ ë„˜ê¸°ëŠ”(ë³´ë‚´ëŠ”) ì—­í• ì„ ìˆ˜í–‰í•˜ê±°ë‚˜, 
+íŠ¹ì • ìì›ì— ì²˜ë¦¬ë¥¼ ìš”ì²­í•˜ê³  ì²˜ë¦¬ ê²°ê³¼ë¥¼ ì–»ì–´ì˜¤ëŠ” ê¸°ëŠ¥ì„ ìˆ˜í–‰í•˜ëŠ” í´ë˜ìŠ¤
+ì¦‰ /a.jsp ë¡œ ë“¤ì–´ì˜¨ ìš”ì²­ì„ /a.jsp ë‚´ì—ì„œ RequestDispatcherë¥¼ ì‚¬ìš©í•˜ì—¬ b.jspë¡œ ìš”ì²­ì„ ë³´ë‚¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤. 
+ë˜ëŠ” a.jspì—ì„œ b.jspë¡œ ì²˜ë¦¬ë¥¼ ìš”ì²­í•˜ê³  b.jspì—ì„œ ì²˜ë¦¬í•œ ê²°ê³¼ ë‚´ìš©ì„ a.jspì˜ ê²°ê³¼ì— í¬í•¨ì‹œí‚¬ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
-[ÇöÀç request¿¡ ´ã±ä Á¤º¸¸¦ ÀúÀåÇÏ°í ÀÖ´Ù°¡ 
-´ÙÀ½,´Ù´ÙÀ½ ÆäÀÌÁö¿¡¼­µµ ÇØ´ç Á¤º¸¸¦ º¼ ¼ö ÀÖ°Ô °è¼Ó ÀúÀå]
+[í˜„ì¬ requestì— ë‹´ê¸´ ì •ë³´ë¥¼ ì €ì¥í•˜ê³  ìˆë‹¤ê°€ 
+ë‹¤ìŒ,ë‹¤ë‹¤ìŒ í˜ì´ì§€ì—ì„œë„ í•´ë‹¹ ì •ë³´ë¥¼ ë³¼ ìˆ˜ ìˆê²Œ ê³„ì† ì €ì¥]
 
-3.°Ô½ÃÆÇ(list.jsp)À» ¸ğµ¨2·Î Â¥½Ã¿À.(feat ¿Ü¿ì½Ã¿À)
+3.ê²Œì‹œíŒ(list.jsp)ì„ ëª¨ë¸2ë¡œ ì§œì‹œì˜¤.(feat ì™¸ìš°ì‹œì˜¤)
 [BDTO.java]
-//dto »ı¼º getter/setter ÇÊ¼ö
+//dto ìƒì„± getter/setter í•„ìˆ˜
 
 package edu.bit.ex.dto;
 
@@ -122,7 +122,7 @@ public class BDto {
 
 }
 -------------------------------------------------------------
-[BCommand interface »ı¼º]
+[BCommand interface ìƒì„±]
 package edu.bit.ex.command;
 
 import javax.servlet.http.HttpServletRequest;
@@ -134,7 +134,7 @@ public interface BCommand {
 	
 }
 --------------------------------------------------------------
-[BListCommand //ÀÚ¼ÕÀÌ ±¸Çö]
+[BListCommand //ìì†ì´ êµ¬í˜„]
 package edu.bit.ex.command;
 
 import java.util.ArrayList;
@@ -154,12 +154,12 @@ public class BListCommand implements BCommand {
 		BDao dao = new BDao();
 		ArrayList<BDto> dtos = dao.list();
 		
-		request.setAttribute("list",dtos); //request¿¡ ÀúÀåÀ» ÇÑ´Ù.(request,page,application,ÃÑ 4°¡Áö°¡ ÀÖÁö)
+		request.setAttribute("list",dtos); //requestì— ì €ì¥ì„ í•œë‹¤.(request,page,application,ì´ 4ê°€ì§€ê°€ ìˆì§€)
 	} 
 }
 ----------------------------------------------------------------
-[BoardFrontController.java ÇÁ·ĞÆ® ÄÁÆ®·Ñ·¯ ¼­ºí¸´]
-//È®ÀåÀÚ ÆĞÅÏÀ¸·Î ¿¬½À (½Ç¹«´Â restfulÆĞÅÏ)
+[BoardFrontController.java í”„ë¡ íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬ ì„œë¸”ë¦¿]
+//í™•ì¥ì íŒ¨í„´ìœ¼ë¡œ ì—°ìŠµ (ì‹¤ë¬´ëŠ” restfulíŒ¨í„´)
 
 package edu.bit.ex.controller;
 
@@ -178,7 +178,7 @@ import edu.bit.ex.command.BListCommand;
 /**
  * Servlet implementation class DogfrontController
  */
-@WebServlet("*.do")// È®ÀåÀÚ ÆĞÅÏ
+@WebServlet("*.do")// í™•ì¥ì íŒ¨í„´
 public class BfrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -206,10 +206,10 @@ public class BfrontController extends HttpServlet {
 		actionDo(request, response);
 		
 	}
-	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  //ÇÁ¶óÀÌºø ÇÔ¼ö·Î ¹Ù²Ş
+	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  //í”„ë¼ì´ë¹— í•¨ìˆ˜ë¡œ ë°”ê¿ˆ
 		System.out.println("actionDo");
-		request.setCharacterEncoding("EUC-KR");
-		
+		request.setCharacterEncoding("EUC-KR");		//requestê°ì²´ë¥¼ ë°›ìœ¼ë ¤ë©´ try, catchë¡œ ê°ì‹¸ì¤˜ì•¼ í•¨ 
+								//ì˜ˆì™¸ì²˜ë¦¬: runtimexception ì œì™¸ ì „ë¶€ ì—ëŸ¬ì²˜ë¦¬ í•´ì¤˜ì•¼ í•¨
 		String viewPage = null;
 		BCommand command = null;
 		
@@ -222,14 +222,20 @@ public class BfrontController extends HttpServlet {
 		System.out.println("comPath : "+conPath);
 		System.out.println("com : "+com);
 
-		if(com.equals("/list.do")){
-			command = new BListCommand();
-			command.execute(request, response);
-			viewPage = "list.jsp";
+		if(com.equals("/list.do")) {			
+			command = new BListCommand();	//polymorphism: BCommand(ë¶€ëª¨interface)ê°€ BListCommand(ìì‹) ë¶ˆëŸ¬ì˜´ by ì»¨íŠ¸ë¡¤ëŸ¬
+			command.execute(request, response); 	//Commandê°€ requestë¥¼ executeí•˜ë©´ BListCommandì˜ executeê°€ ì‹¤í–‰ë˜ë©´ì„œ
+									//ê·¸ ì•ˆì˜ listê°€ ì „ë¶€ í˜¸ì¶œë¨.
+									//ì—¬ê¸°ê¹Œì§€ê°€ 'í´ë¼ì´ì–¸íŠ¸-FrontController-Command-DAO-DTO-DB'ê³¼ì •ì—ì„œ ë¶ˆëŸ¬ì˜¨
+									//requestê°ì²´ë¥¼ ë‹´ì•„ë‚´ëŠ” ê³¼ì •
+			viewPage = "list.jsp";				//FrontControllerê°€ uií™”ë©´ì—ê²Œ ì‘ë‹µ
 	}
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);//viewpage´Â Å¬·¡½º¾ß
-		dispatcher.forward(request,response);   // Àü´Ş¹ŞÀº Á¤º¸µéÀ» list.jsp¿¡ ³Ñ°ÜÁÖ´Â°ÅÁö
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+		dispatcher.forward(request, response);
+		//dispatcherê°ì²´ê°€ request, responseì •ë³´ë¥¼ list.jspì— ì¦‰, list_jsp.classì— ë„˜ê²¨ì¤€ë‹¤.
+		//mvpí˜•ì‹ì„ ì§€í‚¤ê¸° ìœ„í•´ì„œëŠ” jspí˜ì´ì§€ì—ì„œ ê°ì²´ ìƒì„±ì„ ìƒëµí•´ì•¼ í•¨. ê·¸ë˜ì„œ frontcontrollerì—ì„œ requestë¡œ ì–»ì€ ì •ë³´ë¥¼ ë¯¸ë¦¬ ê°ì²´ìƒì„± í›„ forward
+		//ì‹œí‚¤ë©´ jspì—ì„œëŠ” ê°ì²´ ìƒì„± ì—†ì´ requestì •ë³´ë¥¼ ë°”ë¡œ ë°›ì•„ì˜¬ ìˆ˜ ìˆìŒ.
 	}
 }
 -------------------------------------------------------------
@@ -246,21 +252,21 @@ public class BfrontController extends HttpServlet {
 	<body>
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<tr>
-				<td>¹øÈ£</td>
-				<td>ÀÌ¸§</td>
-				<td>Á¦¸ñ</td>
-				<td>³¯Â¥</td>
-				<td>È÷Æ®</td>
+				<td>ë²ˆí˜¸</td>
+				<td>ì´ë¦„</td>
+				<td>ì œëª©</td>
+				<td>ë‚ ì§œ</td>
+				<td>íˆíŠ¸</td>
 			</tr>
-				<!-- Áß¿ä -->
-				<!-- request.setAttribute("list",dtos) ÀÇ ¸®½ºÆ®´Ù -->
+				<!-- ì¤‘ìš” -->
+				<!-- request.setAttribute("list",dtos) ì˜ ë¦¬ìŠ¤íŠ¸ë‹¤ -->
 			<c:forEach var="dto" items="${list }">
 			<tr>
 			<td>${dto.bId }</td>
 			<td>${dto.bName }</td>
 			<td> 
-				<c:forEach begin="1" end="${dto.bIndent }">-</c:forEach>	<!-- ´ñ±Û¿¡ ´ëÇÑ °¡·ÎÂï±â -->
-				<a href="content_view.do?bId=${dto.bId }">${dto.bTitle }</a> <!-- get¹æ½ÄÀ¸·Î ³Ñ±ä´Ù -->
+				<c:forEach begin="1" end="${dto.bIndent }">-</c:forEach>	<!-- ëŒ“ê¸€ì— ëŒ€í•œ ê°€ë¡œì°ê¸° -->
+				<a href="content_view.do?bId=${dto.bId }">${dto.bTitle }</a> <!-- getë°©ì‹ìœ¼ë¡œ ë„˜ê¸´ë‹¤ -->
 			</td>
 			
 				<td>${dto.bDate }</td>
@@ -269,14 +275,14 @@ public class BfrontController extends HttpServlet {
 			</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="5"> <a href="write_view.do">±ÛÀÛ¼º</a> </td>
+				<td colspan="5"> <a href="write_view.do">ê¸€ì‘ì„±</a> </td>
 			</tr>
 		</table>
 	</body>
 </html>
 
 
-4.°Ô½ÃÆÇ list.jsp ÀÇ SQL ±¸¹®Àº?(feat ÀÌ°Íµµ ¿Ü¿ì½Ã¿À)
+4.ê²Œì‹œíŒ list.jsp ì˜ SQL êµ¬ë¬¸ì€?(feat ì´ê²ƒë„ ì™¸ìš°ì‹œì˜¤)
 create table mvc_board(
 bId number(4,0) primary key,
 bName varchar2(20),
@@ -290,14 +296,14 @@ bIndent number(4)
 );
 
 =================================
-5.ºÎ¼­Áß¿¡ salÇÕ°è°¡ °¡ÀåÅ« ºÎ¼­ÀÇ ºÎ¼­¸í°ú salÇÕ°è¸¦ ±¸ÇÏ½Ã¿À. 
+5.ë¶€ì„œì¤‘ì— salí•©ê³„ê°€ ê°€ì¥í° ë¶€ì„œì˜ ë¶€ì„œëª…ê³¼ salí•©ê³„ë¥¼ êµ¬í•˜ì‹œì˜¤. 
 
 SELECT DNAME, SUM(SAL) 
 FROM EMP E,DEPT D 
 WHERE E.DEPTNO = D.DEPTNO GROUP BY DNAME 
 HAVING SUM(SAL)=(SELECT MAX(SUM(SAL)) FROM EMP GROUP BY DEPTNO );
 
-6.empÅ×ÀÌºí¿¡¼­ ºÎ¼­ÄÚµå°¡ 10¶Ç´Â 20¶Ç´Â 30¶Ç´Â 40ÀÎ µ¥ÀÌÅÍÀÇ ±Ş¿©ÀÇ grade¸¦ Ãâ·ÂÇÏ½Ã¿À(»ç¿øID,»ç¿ø¸í,sal,grade) 
+6.empí…Œì´ë¸”ì—ì„œ ë¶€ì„œì½”ë“œê°€ 10ë˜ëŠ” 20ë˜ëŠ” 30ë˜ëŠ” 40ì¸ ë°ì´í„°ì˜ ê¸‰ì—¬ì˜ gradeë¥¼ ì¶œë ¥í•˜ì‹œì˜¤(ì‚¬ì›ID,ì‚¬ì›ëª…,sal,grade) 
 SELECT DEPTNO, EMPNO,ENAME,SAL,GRADE 
 FROM EMP E, SALGRADE S 
 WHERE E.DEPTNO IN(10 ,20,30,40) 
