@@ -1,0 +1,63 @@
+  
+1.게시판 댓글 달기 위한 SQL 구문(3개)들을 설명하시오.(반드시 이해 할것)
+-list를 표현하기 위한 쿼리
+"select * from mvc_board order by bGroup desc, bStep asc";
+
+-shapeReply 함수의 쿼리
+"update mvc_board set bStep=bStep+1 where bGroup= ? and bStep > ?";
+
+-댓글 insert 쿼리
+"insert into mvc_board (bId, bName, bTitle, bContent, bGroup,bStep,bIndent) values (mvc_board_seq.nextval,?, ?, ?, ?, ?, ?)";
+
+2.emp를 템플릿 tables.html을 사용하여 list를 나타내시오.
+ <thead>
+                    <tr>		<!-- <td>넣으면 에러 -->
+                      <th>사번</th>
+                      <th>이름</th>
+                      <th>직업</th>
+                      <th>입사일</th>
+                      <th>월급</th>
+                      <th>부서번호</th>
+                    </tr>
+                  </thead>
+                    <c:forEach var="dto" items="${list }">
+                   <tr>
+			<td>${dto.empno }</td>
+			<td>${dto.ename }</td>
+			<td> 
+				<c:forEach begin="1" end="${dto.bIndent }">-</c:forEach>	<!-- 댓글에 대한 가로찍기 -->
+				
+			</td>
+			<td>${dto.job }</td>
+			<td>${dto.hiredate }</td>
+			<td>${dto.sal }</td>
+			<td>${dto.deptno }</td>
+			
+                    </tr>
+                  </c:forEach>
+                
+                </table>
+===============================
+3)이름에 A가 들어가는 사원과 같은 직업을 가진 사원의 이름과 월급, 부서번호를 출력하라.
+select ename,sal,deptno from emp where job in(select job from emp where ename like '%A%');
+
+4)New  York 에서 근무하는 사원과 급여 및 커미션이 같은 사원의 사원이름과 부서명을 출력하라.
+select ename,dname,loc from emp e join dept d on e.deptno=d.deptno and loc='NEW YORK';
+[or]
+select ename,dname 
+from emp e,dept d
+where e.deptno=d.deptno and 
+sal in(select sal from emp e, dept d where e.deptno=d.deptno and loc='NEW YORK') and 
+nvl(comm,0) in(select nvl(comm,0) from emp e,dept d where e.deptno=d.deptno and loc='NEW YORK');
+
+5)Dallas에서 근무하는 사원과 직업 및 관리자가 같은 사원의 사원번호,사원이름,
+ 직업,월급,부서명,커미션을 출력하되 커미션이 책정되지 않은 사원은 NoCommission으로 표시하고,
+ 커미션의 컬럼명은 Comm으로 나오게 출력하시오. (단, 최고월급부터 출력되게 하시오)
+select empno,ename,job,sal,dname,decode(comm,null,'NoCommission') as Comm,loc 
+from emp e,dept d 
+where e.deptno=d.deptno and 
+job in(select job from emp e,dept d where e.deptno=d.deptno and loc='DALLAS') and 
+mgr in(select mgr from emp e,dept d where e.deptno=d.deptno and loc='DALLAS') 
+order by sal desc;
+
+
