@@ -1,0 +1,41 @@
+1.비지니스 로직이란 무엇인가?
+업무에 필요한 데이터처리를 수행하는 응용프로그램의 일부
+
+2.ejb 와 spring 의 차이는?(간략하게 정리해 볼것)
+EJB : 고가의 장비 요구 / 테스트 환경 제약 
+spring: tomcat을 이용 가능 / 코드의 경량화
+
+3.javascript 의 데이타 타입 종류는?
+Number, String, Boolean, Function, 객체, undefined
+
+4.인터프리터 언어와 컴파일 언어의 차이점은?
+컴파일러는 한번에 모두 읽고 실행하지만 처음 컴파일 과정이 매우 오래걸리고 메모리의 차지도 많습니다. 
+하지만 컴파일 이후 실행이 빠르고 더 이상 변환하지 않아 효율적입니다. 
+반면에 인터프리터는 처음에 빨리 실행되는 반면 많은 과정이 반복될 경우 계속해서 변환 과정을 거쳐야합니다.
+
+==============================
+5)직업이 Clerk 또는 Analyst 이면서 급여가 1000,3000,5000 이 아닌
+ 모든 사원의 이름, 직업 및 급여를 출력하라.
+
+select ename,job,sal
+from emp
+where job in('CLERK','ANALYST') and sal not in(1000,3000,5000);
+
+6)부서별로 부서이름, 부서위치, 사원 수 및 평균 급여를 출력하라.
+ 그리고 각각의 컬럼명을 부서명,위치,사원의 수,평균급여로 표시하라
+
+select dname 부서명,e.deptno 부서번호,loc 위치, count(ename) 사원수,trunc(avg(sal),1) 평균급여 from emp e,dept d
+where e.deptno = d.deptno 
+group by e.deptno, dname, loc
+order by e.deptno asc;
+
+7)Smith와 동일한 부서에 속한 모든 사원의 이름 및 입사일을 출력하라.
+ 단, Smith는 제외하고 출력하시오
+
+select ename,deptno,hiredate from emp
+where deptno IN(select deptno from emp where ename='SMITH') AND ENAME !='SMITH';
+
+8) KING에게 보고하는 모든 사원의 이름과 급여를 출력하라.
+
+select ename,sal from emp
+where mgr in(select empno  from emp where ename='KING');
