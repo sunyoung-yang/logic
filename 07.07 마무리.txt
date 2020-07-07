@@ -191,6 +191,9 @@ public class ApplicationConfig {
 		return cir;
 	}
 	-----------------------OR--------------------------
+	//만약 내가 부모로 rec를 만들경우 RectangleArea클래스에 있는 setWidth,getWidth 못 써 
+	//set,get은 RectangleArea클래스에 포함된 함수지만 rec는 Ishape의 객체니까!
+	//혹시나 변경해야할 경우를 대비하여 RectangleArea로 하는 것이 효율적!!!!
 	@Bean
 	public Ishape recBean() {
 		Ishape rec = new RectangleArea(5,5);
