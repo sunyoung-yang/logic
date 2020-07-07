@@ -190,6 +190,25 @@ public class ApplicationConfig {
 		
 		return cir;
 	}
+	-----------------------OR--------------------------
+	@Bean
+	public Ishape recBean() {
+		Ishape rec = new RectangleArea(5,5);
+		return rec;
+	}
+	
+	@Bean
+	public Ishape triBean() {
+		Ishape tri = new TriangleArea(5,5);
+		return tri;
+	}
+
+	@Bean
+	public Ishape cirBean() {
+		Ishape cir = new CircleArea(5);
+		return cir;
+	}
+	---------------------------------------------------
 }
 [main]
 package edu.bit.ex;
