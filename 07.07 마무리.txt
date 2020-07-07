@@ -213,6 +213,25 @@ public class MainClass {
 		Circle shapecir = ctx.getBean("shapecir",Circle.class);
 		System.out.println(shapecir.getArea());
 		
+		-------------------------OR---------------------------------
+		Ishape recBean = ctx.getBean("recBean",RectangleArea.class);
+		System.out.println(recBean.getArea());
+		
+		Ishape triBean = ctx.getBean("triBean",TriangleArea.class);
+		System.out.println(triBean.getArea());
+		
+		Ishape cirBean = ctx.getBean("cirBean",CircleArea.class);
+		System.out.println(cirBean.getArea());
+		------------------------------------------------------------
+
+		
+		ctx.close();
+		
+		
+		
+		
+		
+		
 		ctx.close();
 	}
 }
