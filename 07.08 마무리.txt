@@ -1,7 +1,7 @@
   
-1.ÀÚ¹Ù½ºÅ©¸³Æ®¿¡¼­ ¾Æ·¡¸¦ ¿¹¸¦ µé¾î ¼³¸íÇÏ½Ã¿À.
+1.ìžë°”ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì•„ëž˜ë¥¼ ì˜ˆë¥¼ ë“¤ì–´ ì„¤ëª…í•˜ì‹œì˜¤.
 
--ÇÔ¼ö ¾È¿¡ ÇÔ¼ö : 
+-í•¨ìˆ˜ ì•ˆì— í•¨ìˆ˜ : 
 unction funName(){
 		return function(x) {
 			for(var i=1;i<10;i++){
@@ -12,7 +12,7 @@ unction funName(){
 	var returnFun = funName();
 	returnFun(4);
 		
--ÄÝ¹éÇÔ¼ö :
+-ì½œë°±í•¨ìˆ˜ :
 function funName(funCBP,funCBF,num){
 		for(var i=1;i<=10;i++){
 			console.log(num+"*"+i+"="+(num*i));
@@ -22,17 +22,17 @@ function funName(funCBP,funCBF,num){
 		funCBF();
 	}
 	function funCallBackProcess(n){
-		console.log((n*10)+"% ÁøÇà ¿Ï·á!");
+		console.log((n*10)+"% ì§„í–‰ ì™„ë£Œ!");
 	};
 	function funCallBackFinish(){
-		console.log("¼­¹ö ÀÛ¾÷ ¿Ï·á");
+		console.log("ì„œë²„ ìž‘ì—… ì™„ë£Œ");
 	};
 	
 	funName(funCallBackProcess,funCallBackFinish,7);
 
--Å¬·ÎÀú : 
+-í´ë¡œì € : 
 function funName(x){
-		var varName = "¿äÃ»"+x+"´Ü";
+		var varName = "ìš”ì²­"+x+"ë‹¨";
 		return function() {
 			console.log(varName);
 				
@@ -45,7 +45,7 @@ function funName(x){
 	var returnFun = funName(4);
 	returnFun();
 
--ÇÔ¼ö¾È¿¡ ¶Ç´Ù¸¥ ÇÔ¼ö
+-í•¨ìˆ˜ì•ˆì— ë˜ë‹¤ë¥¸ í•¨ìˆ˜
 function outFun(width,height){
 		console.log("triangle : "+triangle());
 		console.log("quadrangle : "+quadrangle());
@@ -59,47 +59,47 @@ function outFun(width,height){
 	}
 	outFun(3,5);
 
-2.Environment°´Ã¼¸¦ ÀÌ¿ëÇØ¼­ ½ºÇÁ¸µ ºó ¼³Á¤À» À§ÇÑ ¾Æ·¡ÀÇ °´Ã¼¸¦ ¼³¸íÇÏ½Ã¿À.
--Context : ContextÀÇ getEnvironment() ¸Þ¼­µå¸¦ ÅëÇØ environment¸¦ °¡Á®¿Â´Ù.
+2.Environmentê°ì²´ë¥¼ ì´ìš©í•´ì„œ ìŠ¤í”„ë§ ë¹ˆ ì„¤ì •ì„ ìœ„í•œ ì•„ëž˜ì˜ ê°ì²´ë¥¼ ì„¤ëª…í•˜ì‹œì˜¤.
+-Context : Contextì˜ getEnvironment() ë©”ì„œë“œë¥¼ í†µí•´ environmentë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 		ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
 
--Environment : Environment °´Ã¼ÀÇ getPropertySources ¸Þ¼­µå¸¦ ÅëÇØ È¯°æ¼³Á¤ ÆÄÀÏ ¾È¿¡ Á¸ÀçÇÏ´Â ¼³Á¤ÆÄÀÏµé¿¡ Á¢±ÙÇÏ¿© ¿øÇÏ´Â Á¤º¸¸¦ ºÒ·¯¿Ã ¼ö ÀÖ´Ù.
+-Environment : Environment ê°ì²´ì˜ getPropertySources ë©”ì„œë“œë¥¼ í†µí•´ í™˜ê²½ì„¤ì • íŒŒì¼ ì•ˆì— ì¡´ìž¬í•˜ëŠ” ì„¤ì •íŒŒì¼ë“¤ì— ì ‘ê·¼í•˜ì—¬ ì›í•˜ëŠ” ì •ë³´ë¥¼ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìžˆë‹¤.
 		ConfigurableEnvironment env = ctx.getEnvironment();
 
--PropertySources : PropertySources °´Ã¼ÀÇ addLast ¸Þ¼­µå¸¦ ÅëÇØ ÆÄÀÏ¿¡ Á¢±ÙÇÏ¿© ¿øÇÏ´Â Á¤º¸¸¦ ¸Þ¸ð¸®¿¡ ¿Ã¸°´Ù. (Á¤º¸ Ãß°¡)
-		getProperty ¸Þ¼­µå¸¦ ÅëÇØ ÆÄÀÏ¿¡ Á¢±ÙÇÏ¿© ¿øÇÏ´Â Á¤º¸¸¦ ÃßÃâÇÒ ¼ö ÀÖ´Ù.
+-PropertySources : PropertySources ê°ì²´ì˜ addLast ë©”ì„œë“œë¥¼ í†µí•´ íŒŒì¼ì— ì ‘ê·¼í•˜ì—¬ ì›í•˜ëŠ” ì •ë³´ë¥¼ ë©”ëª¨ë¦¬ì— ì˜¬ë¦°ë‹¤. (ì •ë³´ ì¶”ê°€)
+		getProperty ë©”ì„œë“œë¥¼ í†µí•´ íŒŒì¼ì— ì ‘ê·¼í•˜ì—¬ ì›í•˜ëŠ” ì •ë³´ë¥¼ ì¶”ì¶œí•  ìˆ˜ ìžˆë‹¤.
 			MutablePropertySources propertySources = env.getPropertySources();
 
 
-3.Environment°´Ã¼¸¦ »ç¿ëÇÏÁö ¾Ê°í ÇÁ·ÎÆÛÆ¼ ÆÄÀÏÀ» Á÷Á¢ ÀÌ¿ëÇÏ¿© ½ºÇÁ¸µ ºóÀ» ¼³Á¤ÇÏ´Â ¹æ¹ýÀº?
+3.Environmentê°ì²´ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šê³  í”„ë¡œí¼í‹° íŒŒì¼ì„ ì§ì ‘ ì´ìš©í•˜ì—¬ ìŠ¤í”„ë§ ë¹ˆì„ ì„¤ì •í•˜ëŠ” ë°©ë²•ì€?
 [xml]
 <context:property-placeholder location="classpath:admin.properties, classpath:sub_admin.properties" />
 
 
-4.¾Æ·¡¿Í °°ÀÌ ¿øÀÇ ³ÐÀÌ¸¦ ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÚ¹Ù½ºÅ©¸³Æ®·Î ÀÛ¼ºÇÏ½Ã¿À.
-ÀÔ·ÂÀº prompt ·Î ¹ÞÀ¸½Ã¿À.
+4.ì•„ëž˜ì™€ ê°™ì´ ì›ì˜ ë„“ì´ë¥¼ êµ¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìžë°”ìŠ¤í¬ë¦½íŠ¸ë¡œ ìž‘ì„±í•˜ì‹œì˜¤.
+ìž…ë ¥ì€ prompt ë¡œ ë°›ìœ¼ì‹œì˜¤.
 
-¿øÀÇ ¹ÝÁö¸§À» ÀÔ·ÂÇÏ¼¼¿ä : 10
-¿øÀÇ ³ÐÀÌ´Â 314 ÀÔ´Ï´Ù.
-°è¼Ó ÇÏ½Ã°Ú½À´Ï±î yes¸é y NoÀÌ¸é n: y
-¿øÀÇ ¹ÝÁö¸§À» ÀÔ·ÂÇÏ¼¼¿ä : 10
-¿øÀÇ ³ÐÀÌ´Â 314 ÀÔ´Ï´Ù.
-°è¼Ó ÇÏ½Ã°Ú½À´Ï±î yes¸é y NoÀÌ¸é n: n
-ÇÁ·Î±×·¥À» Á¾·á ÇÕ´Ï´Ù.
+ì›ì˜ ë°˜ì§€ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš” : 10
+ì›ì˜ ë„“ì´ëŠ” 314 ìž…ë‹ˆë‹¤.
+ê³„ì† í•˜ì‹œê² ìŠµë‹ˆê¹Œ yesë©´ y Noì´ë©´ n: y
+ì›ì˜ ë°˜ì§€ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš” : 10
+ì›ì˜ ë„“ì´ëŠ” 314 ìž…ë‹ˆë‹¤.
+ê³„ì† í•˜ì‹œê² ìŠµë‹ˆê¹Œ yesë©´ y Noì´ë©´ n: n
+í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œ í•©ë‹ˆë‹¤.
 
 	<script>
 	while(true){
-	var radius = prompt("¿øÀÇ ¹ÝÁö¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+	var radius = prompt("ì›ì˜ ë°˜ì§€ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”.");
 	
 	  var rad=Number(radius);
 	
 	var result= rad*rad*(Math.PI);
-	alert("¿øÀÇ ³ÐÀÌ´Â "+ result +"ÀÔ´Ï´Ù.");
+	alert("ì›ì˜ ë„“ì´ëŠ” "+ result +"ìž…ë‹ˆë‹¤.");
 	
-	var con=prompt("°è¼Ó ÇÏ½Ã°Ú½À´Ï±î?");
+	var con=prompt("ê³„ì† í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 	
 	 if(con == 'y' ||con == 'Y'){
-		 alert("again? take a easy friend..");
+		 alert("again? take it easy friend..");
 		continue;
 	}else{
 		alert("bye buddy!");
@@ -108,7 +108,7 @@ function outFun(width,height){
 	 }
 	</script>
 
-5. ¾Æ·¡ÀÇ ³»Àå ÇÔ¼ö¿¡ ´ëÇÏ¿© ¼³¸íÇÏ½Ã¿À.
--eval() : ¹®ÀÚ¿­ÀÇ ¼Ò½ºÄÚµå¸¦ ½ÇÇà½ÃÅ²´Ù. ÀÚ¹Ù½ºÅ©¸³Æ®´Â º¸¾ÈÀÌ ¾àÇØ¼­ »ç¿ë ÃßÃµ ¾ÈÇØ
--setTimeout() : ¼³Á¤µÈ nÃÊ ÈÄ¿¡ ÇÔ¼ö°¡ Á¾·áµÈ´Ù.
--setInterval() : ¼³Á¤µÈ nÃÊ¸¶´Ù ½ÇÇàµÈ´Ù.
+5. ì•„ëž˜ì˜ ë‚´ìž¥ í•¨ìˆ˜ì— ëŒ€í•˜ì—¬ ì„¤ëª…í•˜ì‹œì˜¤.
+-eval() : ë¬¸ìžì—´ì˜ ì†ŒìŠ¤ì½”ë“œë¥¼ ì‹¤í–‰ì‹œí‚¨ë‹¤. ìžë°”ìŠ¤í¬ë¦½íŠ¸ëŠ” ë³´ì•ˆì´ ì•½í•´ì„œ ì‚¬ìš© ì¶”ì²œ ì•ˆí•´
+-setTimeout() : ì„¤ì •ëœ nì´ˆ í›„ì— í•¨ìˆ˜ê°€ ì¢…ë£Œëœë‹¤.
+-setInterval() : ì„¤ì •ëœ nì´ˆë§ˆë‹¤ ì‹¤í–‰ëœë‹¤.
