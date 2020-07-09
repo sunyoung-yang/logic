@@ -1,0 +1,65 @@
+1.
+스프링 mvc란 
+클라이언트 / DispatcherServlet / HandlerMapping / HandlerAdapter
+/ Controller / ViewResolver / view 로 이루어진 MVC 패턴
+
+
+2.
+pom.xml
+- Maven 라이브러리 설정 파일
+
+
+web.xml
+- 웹 애플리케이션( 톰캣 ) 설정 파일
+- 여기서 DispatcherServlet 객체 생성후 location을 servlet-context.xml 로 초기화
+- DispatcherServlet 매핑 ( / )
+
+
+servlet-context.xml
+- DispatcherServlet 설정 파일
+
+- <annotation-driven />
+==> 어노테이션 사용한다
+
+- <resources mapping= ~ location= ~ />
+==> 정적리소스 ( css, js, image ) 매핑
+
+- ViewResolver <bean> 생성 ( 수정가능 )
+
+-<context:component-scan base-package= ~ />
+==> 베이스패키지 하위에있는 어노테이션 빈으로 생성
+
+
+3.
+실행순서;
+클라이언트가 주소 입력시 ( path ) DispatcherServlet 로 입장
+DispatcherServlet 에서 HandlerMapping 객체 생성
+path에 맞는 컨트롤러 검색 => 찾음
+HandlerAdapter 가 해당 컨트롤러와 연결
+Controller 실행후 viewName 반환
+ViewResolver 가 prefix+viewName+suffix 로 합침
+prefix+viewName+suffix = view 의 경로
+
+
+4.
+짜보시오
+
+
+5.
+function createCar(name, color, speed) {
+	var car = {
+			name : name,
+			color : color,
+			speed : speed,
+			run : function() {
+				return "run "+this.speed+"km/s";
+			}
+	}
+	
+	return car;
+}
+
+
+var sorento = createCar("SORENTO", "GREY", 220);
+console.log("sorento.name : " + sorento.name);
+console.log("sorento.run : " + sorento.run());
