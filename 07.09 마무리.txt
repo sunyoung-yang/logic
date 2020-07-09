@@ -18,6 +18,16 @@ DispatcherServlet 객체 생성후 location을 servlet-context.xml 로 초기화
 mybatis를 사용하여 데이터베이스에 쉽게 접근하기 위해 사용
 
 3.스프링의 아래의 객체에 대하여 설명하고, 해당 스프링의 실행 순서는?
+
+실행순서;
+클라이언트가 주소 입력시 ( path ) DispatcherServlet 로 입장
+DispatcherServlet 에서 HandlerMapping 객체 생성
+path에 맞는 컨트롤러 검색 => 찾음
+HandlerAdapter 가 해당 컨트롤러와 연결
+Controller 실행후 viewName 반환
+ViewResolver 가 prefix+viewName+suffix 로 합침
+prefix+viewName+suffix = view 의 경로
+--------------------------------------------------------------------
 -dispacherservlet : 
 클라이언트로부터 요청이 오면 tomcat과 같은 서블릿 컨테이너가 요청을 받아. 
 이때 제일 앞에서 서버로 오는 모든 요청을 처리하는 프런트 컨트롤러!
