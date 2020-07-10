@@ -1,0 +1,230 @@
+1.
+- DI
+- 의존성주입
+- 한 객체 A 의 멤버 변수중 참조형으로 되어있는 변수가 있을때
+이 변수를 객체로 만들어 A에 넣는 방법은 두가지이다
+
+1) 객체 A에서 new 생성자로 객체생성을한다 ( 생성 )
+2) 외부에서 객체생성을 해서 객체 A에 setter / 생성자로 주입한다 ( 주입 )
+
+2)번을 사용하는것이 의존성 주입이다.
+
+
+- IOC
+- 제어의역전
+- 의존 객체들의 객체 생성시간이 
+위의	1)생성으로 했을시 정주행 ( 큰거부터 작은것 )
+     	2)주입으로 했을시 역주행 ( 작은것부터 큰것 )
+
+역주행으로 하는것이 IoC ?
+
+
+- IOC 컨테이너
+- 스프링에서 bean ( 의존객체 ) 들을 관리하는 컨테이너
+- 제어의 역전을 지키며 의존성을 주입해줌 ?
+
+* 스프링에서는 xml / 어노테이션으로 의존성 관계정보를 입력가능
+
+
+2.
+장점 ; 빠른구현시간 / 쉬운관리 / 일관성유지
+단점 ; 배우기오래걸림 / 코딩능력떨어짐
+
+
+3.
+- MyArea class
+
+package edu.bit.ex;
+
+public class MyArea {
+	private Figure figure;
+	
+	public MyArea() {}
+	
+	public void areaPrint() {
+		System.out.println("넓이는 "+figure.getArea()+" 입니다");
+	}
+
+	public Figure getFigure() {
+		return figure;
+	}
+
+	public void setFigure(Figure figure) {
+		this.figure = figure;
+	}
+}
+
+
+- Figure interface
+
+package edu.bit.ex;
+
+public interface Figure {
+	public double getArea();
+}
+
+
+- Circle
+
+package edu.bit.ex;
+
+public class Circle implements Figure{
+
+	private int rad;
+	
+	public Circle() {}
+	
+	public int getRad() {
+		return rad;
+	}
+
+	public void setRad(int rad) {
+		this.rad = rad;
+	}
+
+	@Override
+	public double getArea() {
+		return rad * rad * Math.PI;
+	}	
+}
+
+
+- Rectangle
+
+package edu.bit.ex;
+
+public class Rectangle implements Figure{
+
+	private int width;
+	private int height;
+	
+	public Rectangle() {}
+	
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	@Override
+	public double getArea() {
+		return width*height;
+	}
+	
+}
+
+
+- Triangle
+
+package edu.bit.ex;
+
+public class Triangle implements Figure{
+
+	private int width;
+	private int height;
+	
+	public Triangle() {}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	@Override
+	public double getArea() {
+		return width * height * 0.5;
+	}
+	
+}
+
+- Main 
+
+package edu.bit.ex;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:appCTX.xml");
+		
+		MyArea area = ctx.getBean("area1", MyArea.class);
+		area.areaPrint();
+		
+		area = ctx.getBean("area2", MyArea.class);
+		area.areaPrint();
+		
+		area = ctx.getBean("area3", MyArea.class);
+		area.areaPrint();
+	}
+}
+
+
+- .xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="cir" class="edu.bit.ex.Circle">
+		<property name="rad" value="10"/>
+	</bean>
+	<bean id="tri" class="edu.bit.ex.Triangle">
+		<property name="width" value="10"/>
+		<property name="height" value="10"/>
+	</bean>
+	<bean id="rec" class="edu.bit.ex.Rectangle">
+		<property name="width" value="10"/>
+		<property name="height" value="10"/>
+	</bean>
+	
+	<bean id="area1" class="edu.bit.ex.MyArea">
+		<property name="figure">
+			<ref bean="cir"/>
+		</property>
+	</bean>
+	<bean id="area2" class="edu.bit.ex.MyArea">
+		<property name="figure">
+			<ref bean="tri"/>
+		</property>
+	</bean>
+	<bean id="area3" class="edu.bit.ex.MyArea">
+		<property name="figure">
+			<ref bean="rec"/>
+		</property>
+	</bean>
+</beans>
+
+
+4.
+콘솔창에
+
+------------------------------------------
+varArrSortBefor : "E", "B", "A", "C", "D"
+varArrSort : "A", "B", "C", "D", "E"
+varArrSortAfter : "A", "B", "C", "D", "E"
+----------------------------------------
+varArrSortAfter : "A", "B", "C", "D", "E"
+
+// 배열의 sort함수는 배열을 정렬하는 것인데 문자열로된 배열을 다시 sort() 해도 그대로
