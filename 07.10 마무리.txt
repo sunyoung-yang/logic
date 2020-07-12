@@ -1,42 +1,42 @@
-1.Model °´Ã¼¿¡ ´ëÇÏ¿© ¼³¸íÇÏ½Ã¿À.
-Model °´Ã¼¸¦ ÆÄ¶ó¹ÌÅÍ·Î ¹Ş¾Æ¼­ µ¥ÀÌÅÍ¸¦ ºä·Î ³Ñ±â´Â ¿ªÇÒ
-model.addAttribute("key",value) ¸¦ »ç¿ëÇÏ¿© µ¥ÀÌÅÍ¸¦ view·Î ³Ñ±ä´Ù.
+1.Model ê°ì²´ì— ëŒ€í•˜ì—¬ ì„¤ëª…í•˜ì‹œì˜¤.
+Model ê°ì²´ë¥¼ íŒŒë¼ë¯¸í„°ë¡œ ë°›ì•„ì„œ ë°ì´í„°ë¥¼ ë·°ë¡œ ë„˜ê¸°ëŠ” ì—­í• 
+model.addAttribute("key",value) ë¥¼ ì‚¬ìš©í•˜ì—¬ ë°ì´í„°ë¥¼ viewë¡œ ë„˜ê¸´ë‹¤.
 
-2.ModelAndView °´Ã¼ÀÇ »ç¿ë¹ıÀº?
-model°ú view¸¦ µ¿½Ã¿¡ ¼³Á¤ÇÒ ¼ö ÀÖ´Ù.
-ModelAndView °´Ã¼ »ı¼º ÈÄ, addObject("key",value)¸¦ ÀÌ¿ëÇÏ¿© µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇÑ´Ù.
-setViewName()À¸·Î ºäÆäÀÌÁö ÀÌ¸§À» ¼³Á¤ÇÒ ¼ö ÀÖ´Ù.
-ModelAndView °´Ã¼¸¦ ¸®ÅÏÇÑ´Ù.
+2.ModelAndView ê°ì²´ì˜ ì‚¬ìš©ë²•ì€?
+modelê³¼ viewë¥¼ ë™ì‹œì— ì„¤ì •í•  ìˆ˜ ìˆë‹¤.
+ModelAndView ê°ì²´ ìƒì„± í›„, addObject("key",value)ë¥¼ ì´ìš©í•˜ì—¬ ë°ì´í„°ë¥¼ ì…ë ¥í•œë‹¤.
+setViewName()ìœ¼ë¡œ ë·°í˜ì´ì§€ ì´ë¦„ì„ ì„¤ì •í•  ìˆ˜ ìˆë‹¤.
+ModelAndView ê°ì²´ë¥¼ ë¦¬í„´í•œë‹¤.
 
-3.¾Æ·¡¸¦ @À» ¼³¸íÇÏ½Ã¿À.
+3.ì•„ë˜ë¥¼ @ì„ ì„¤ëª…í•˜ì‹œì˜¤.
 -@RequestParam
-ÆÄ¶ó¹ÌÅÍÀÇ °ª°ú ÀÌ¸§À» ÇÔ²² Àü´ŞÇÏ´Â ¹æ½ÄÀÏ¶§ »ç¿ëÇÑ´Ù.
-httpServletRequest¿ªÇÒÀ» ÇØÁÖ±â ¶§¹®¿¡ getParameter()¸¦ »ç¿ëÇÒ ÇÊ¿ä ¾ø´Ù.
+íŒŒë¼ë¯¸í„°ì˜ ê°’ê³¼ ì´ë¦„ì„ í•¨ê»˜ ì „ë‹¬í•˜ëŠ” ë°©ì‹ì¼ë•Œ ì‚¬ìš©í•œë‹¤.
+httpServletRequestì—­í• ì„ í•´ì£¼ê¸° ë•Œë¬¸ì— getParameter()ë¥¼ ì‚¬ìš©í•  í•„ìš” ì—†ë‹¤.
 
 
-4.req.getParameter º¸´Ù @RequestParam ÀÇ ÀåÁ¡Àº?
-request.getParameter ´Â ¹«Á¶°Ç String Çü À¸·Î ÃßÃâ
-@RequestParam Àº °³¹ßÀÚ°¡ ¿øÇÏ´Â ÇüÅÂ·Î ÃßÃâÇÑ´Ù´Â ÀåÁ¡ÀÌ ÀÖ´Ù
+4.req.getParameter ë³´ë‹¤ @RequestParam ì˜ ì¥ì ì€?
+request.getParameter ëŠ” ë¬´ì¡°ê±´ String í˜• ìœ¼ë¡œ ì¶”ì¶œ
+@RequestParam ì€ ê°œë°œìê°€ ì›í•˜ëŠ” í˜•íƒœë¡œ ì¶”ì¶œí•œë‹¤ëŠ” ì¥ì ì´ ìˆë‹¤
 
-5.command °´Ã¼¶õ?
-È¸¿ø°¡ÀÔ°ú °°Àº µ¥ÀÌÅÍ ¾çÀÌ ¸¹À» °æ¿ì À¯¿ëÇÏ´Ù.
- - À¯ÀÇÇÒÁ¡ 2°¡Áö´Â?
-	default »ı¼ºÀÚ°¡ ÀÖ¾î¾ß ÇÑ´Ù. (ÀÌ »ı¼ºÀÚ¸¦ ÅëÇØ °´Ã¼¸¦ ¸¸µé±â ¶§¹®)
-	request ·Î ¹Ş¾Æ¿Â ÆÄ¶ó¹ÌÅÍÀÇ key °¡ Ä¿¸Çµå°´Ã¼ÀÇ ¸â¹öº¯¼ö¸í°ú ÀÏÄ¡ÇØ¾ß ÇÑ´Ù
-
-
-6.HttpServletRequest °´Ã¼¸¦ ¼³¸íÇÏ½Ã¿À.
-»ç¿ëÀÚ°¡ ¿äÃ»ÇÑ µ¥ÀÌÅÍ¸¦ ¹Ş´Â °´Ã¼ÀÌ´Ù.
-HttpServletRequest °´Ã¼°¡ Http protocol¿¡ ´ëÇÑ ³»¿ëÀ» Ä¸½¶È­ ÇÏ¿© ´ã¾ÆµĞ´Ù.
-get¹æ½Ä) urlÀÇ Á¤º¸°¡ httpServletRequest·Î µé¾î°¡
-
-7.Á¤º¸Àº´ĞÀÌ¶õ?
-¸ğµç °´Ã¼ÁöÇâ ¾ğ¾îÀû ¿ä¼Ò¸¦ È°¿ëÇÏ¿© °´Ã¼¿¡ ´ëÇÑ ±¸Ã¼ÀûÀÎ Á¤º¸¸¦ ³ëÃâ½ÃÅ°Áö ¾Êµµ·Ï ÇÏ´Â ±â¹ı.
-( getter / setter ¿Í °°Àº ÇÔ¼ö¸¦½á¼­ Á¢±Ù °¡´É ) 
+5.command ê°ì²´ë€?
+íšŒì›ê°€ì…ê³¼ ê°™ì€ ë°ì´í„° ì–‘ì´ ë§ì„ ê²½ìš° ìœ ìš©í•˜ë‹¤.
+ - ìœ ì˜í• ì  2ê°€ì§€ëŠ”?
+	default ìƒì„±ìê°€ ìˆì–´ì•¼ í•œë‹¤. (ì´ ìƒì„±ìë¥¼ í†µí•´ ê°ì²´ë¥¼ ë§Œë“¤ê¸° ë•Œë¬¸)
+	request ë¡œ ë°›ì•„ì˜¨ íŒŒë¼ë¯¸í„°ì˜ key ê°€ ì»¤ë§¨ë“œê°ì²´ì˜ ë©¤ë²„ë³€ìˆ˜ëª…ê³¼ ì¼ì¹˜í•´ì•¼ í•œë‹¤
 
 
-8.¾Æ·¡¸¦ ÇÁ·Î±×·¡¹Ö ÇÏ½Ã¿À.
--ÇÁ·ÎÅäÅ¸ÀÔÀ¸·Î ÇÔ¼ö¸¦ ¸¸µé°Í
+6.HttpServletRequest ê°ì²´ë¥¼ ì„¤ëª…í•˜ì‹œì˜¤.
+ì‚¬ìš©ìê°€ ìš”ì²­í•œ ë°ì´í„°ë¥¼ ë°›ëŠ” ê°ì²´ì´ë‹¤.
+HttpServletRequest ê°ì²´ê°€ Http protocolì— ëŒ€í•œ ë‚´ìš©ì„ ìº¡ìŠí™” í•˜ì—¬ ë‹´ì•„ë‘”ë‹¤.
+getë°©ì‹) urlì˜ ì •ë³´ê°€ httpServletRequestë¡œ ë“¤ì–´ê°€
+
+7.ì •ë³´ì€ë‹‰ì´ë€?
+ëª¨ë“  ê°ì²´ì§€í–¥ ì–¸ì–´ì  ìš”ì†Œë¥¼ í™œìš©í•˜ì—¬ ê°ì²´ì— ëŒ€í•œ êµ¬ì²´ì ì¸ ì •ë³´ë¥¼ ë…¸ì¶œì‹œí‚¤ì§€ ì•Šë„ë¡ í•˜ëŠ” ê¸°ë²•.
+( getter / setter ì™€ ê°™ì€ í•¨ìˆ˜ë¥¼ì¨ì„œ ì ‘ê·¼ ê°€ëŠ¥ ) 
+
+
+8.ì•„ë˜ë¥¼ í”„ë¡œê·¸ë˜ë° í•˜ì‹œì˜¤.
+-í”„ë¡œí† íƒ€ì…ìœ¼ë¡œ í•¨ìˆ˜ë¥¼ ë§Œë“¤ê²ƒ
 
 function Scoring(name,scoreFirst,scoreSecond,scoreThird){
 		this.name=name;
@@ -54,19 +54,19 @@ function Scoring(name,scoreFirst,scoreSecond,scoreThird){
 	};
 -------------------------------------------------------------------------------------------
 
-		var player1 = new Scoring("È«±æµ¿", 99, 90, 92);
-		console.log(player1.player + "ÀÇ ÃÑÁ¡ : " + player1.getTotal());
-		console.log(player1.player + "ÀÇ Æò±Õ : " + player1.getAverage());
+		var player1 = new Scoring("í™ê¸¸ë™", 99, 90, 92);
+		console.log(player1.player + "ì˜ ì´ì  : " + player1.getTotal());
+		console.log(player1.player + "ì˜ í‰ê·  : " + player1.getAverage());
 			
-		var player2 = new Scoring("È«±æ¼ø", 80, 90, 85);
-		console.log(player2.player + "ÀÇ ÃÑÁ¡ : " + player2.getTotal());
-		console.log(player2.player + "ÀÇ Æò±Õ : " + player2.getAverage());
+		var player2 = new Scoring("í™ê¸¸ìˆœ", 80, 90, 85);
+		console.log(player2.player + "ì˜ ì´ì  : " + player2.getTotal());
+		console.log(player2.player + "ì˜ í‰ê·  : " + player2.getAverage());
 
 
-9.¾Æ·¡¸¦ ½ºÇÁ¸µ mvc·Î ÇÁ·Î±×·¡¹Ö ÇÏ½Ã¿À.
-ÀÌ¸§ ±¹¾î ¿µ¾î ¼öÇĞ À» ÀÔ·Â ÇÏ´Â ÆäÀÌÁö¸¦ ¸¸µçÈÄ, ÀÌ¸§°ú ÃÑÁ¡ Æò±ÕÀ» Å¬¶óÀÌ¾ğÆ®¿¡°Ô º¸³»ÁÙ°Í
-1)Á¶°Ç - command °´Ã¼ »ç¿ë ÇÒ°Í
-2)·Òº¹ÀÌ »ç¿ë ÇÒ°Í.
+9.ì•„ë˜ë¥¼ ìŠ¤í”„ë§ mvcë¡œ í”„ë¡œê·¸ë˜ë° í•˜ì‹œì˜¤.
+ì´ë¦„ êµ­ì–´ ì˜ì–´ ìˆ˜í•™ ì„ ì…ë ¥ í•˜ëŠ” í˜ì´ì§€ë¥¼ ë§Œë“ í›„, ì´ë¦„ê³¼ ì´ì  í‰ê· ì„ í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë³´ë‚´ì¤„ê²ƒ
+1)ì¡°ê±´ - command ê°ì²´ ì‚¬ìš© í• ê²ƒ
+2)ë¡¬ë³µì´ ì‚¬ìš© í• ê²ƒ.
 [Grade](Command)
 public class Grade {
 
@@ -94,8 +94,8 @@ name : ${grade.name} <br>
 	 math : ${grade.math} <br>
 	 english : ${grade.eng} <br>
 	  <br>
-	 ÃÑÇÕ : ${grade.sum}  <br>
-	 Æò±Õ : ${grade.avg}
+	 ì´í•© : ${grade.sum}  <br>
+	 í‰ê·  : ${grade.avg}
 
 [Controller]
 @RequestMapping("/test/gradeInput")
@@ -115,7 +115,9 @@ name : ${grade.name} <br>
 		double avg=(kor+math+eng)/3;
 		
 		grade.setSum(sum);
+		grade.getSum();
 		grade.setAvg(avg);
+		grade.getAvg();
 	
 		return "test/gradeOutput";
 	}
