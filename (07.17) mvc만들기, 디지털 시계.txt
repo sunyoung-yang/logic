@@ -48,7 +48,7 @@ reply_view 로 이동
 				result+=("0"+now.getMinutes()).slice(-2)+":";
 				result+=("0"+now.getSeconds()).slice(-2);
 				
-				return result;
+				return result;		//리턴 없으면 undifined 뜬다
 			}
 			
 			var divNode = document.createElement("div");
