@@ -1,0 +1,75 @@
+1.
+본문 에서 답글 작성 클릭
+	|
+	|   본문의 bId 로 ( SELECT * FROM mvc_board WHERE bid=? ) 
+	|   쿼리문을 실행해서 dto 객체를 reply_view로 넘겨줌	
+	|
+	|
+reply_view 로 이동
+답글 작성후 확인 버튼 클릭
+	|
+	|   reply_view에서 넘어오는 파라미터 
+	|   => bGroup , bStep , bIndent , bName , bTitle , bContent
+	|   	
+	|   dao.reply( 위의 파라미터 )	 실행시
+	|   replyShape( bGroup , bStep ) 실행후 reply 쿼리문실행
+	|   replyShape 쿼리문
+	|   => UPDATE mvc_board SET bstep=bstep+1 WHERE bgroup=? AND bstep>?
+	|   => 답글을 달 게시물의 bGroup 과 같고 bStep이 해당 게시물보다 높은 답글들의 bStep을 1씩 올린다 ( 자리 마련 )
+	|   reply 쿼리문
+	|   => INSERT INTO mvc_board VALUES(board2_seq.nextval, ?, ?, ?, sysdate, 0, ?, ?, ?)
+	|   => 이름/제목/내용은 입력한것 넣기
+	|   => bGroup은 동일하게넣기 / bStep , bIndent 는 1씩 증가해서 넣기 ( 마련한 자리에 댓글 집어넣음 )
+	|
+답글 작성 완료
+
+
+2.
+짜시오
+
+
+3.
+짜시오
+
+
+4.
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function nowTime() {
+				var result = "";
+				
+				var now = new Date();
+				
+				result+=("0"+now.getHours()).slice(-2)+":";
+				result+=("0"+now.getMinutes()).slice(-2)+":";
+				result+=("0"+now.getSeconds()).slice(-2);
+				
+				return result;
+			}
+			
+			var divNode = document.createElement("div");
+			divNode.style.textAlign = "center";
+			divNode.style.paddingTop = "100px";
+			
+			function setDivNode() {
+				var str = "<h1>"+nowTime()+"</h1>";
+				divNode.innerHTML = str;
+			}
+			
+			window.onload = function() {
+				document.body.appendChild(divNode);
+				setDivNode();
+			}
+			
+			setInterval(function() {
+				setDivNode();
+			}, 1000)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
