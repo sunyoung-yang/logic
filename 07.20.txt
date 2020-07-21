@@ -1,0 +1,81 @@
+1.
+정적 리소스란 js / css / image / html 같이 이미 만들어진 리소스
+
+
+
+2.
+스프링 MVC 에서는 리소스파일들을 webapp의 resource 폴더에 모아놓고
+servlet-context.xml 파일의 <resource mapping=? location=? > 구문을
+설정해 리소스 매핑을 해서 가져다 쓸수 있다
+
+
+
+3.
+구현하시오
+
+
+4.
+- @AutoWired / @Inject / @Resource
+세개 다 자동으로 의존 주입 하는 기능을 가졌으며 ( new )
+차이점은;
+> @AutoWired  	타입 > 이름 > qualifier
+> @Resource    	이름 > 타입 > qualifier
+> @Inject	타입 > qualifier > 이름
+
+순서로 비교를 해 객체를 주입한다
+
+qualifier 란 ? 
+빈 생성시 qualifier 값을 정해 
+@AutoWired로 주입할때 @Qualifier(" 설정한값 ") 어노테이션을 사용해서
+해당 qualifier 값으로 생성한 빈을 주입할수 있다
+
+
+- @Repository / @Service ( / @Controller / @Component )
+
+@Component란 해당 어노테이션을 설정한 클래스를 빈으로 만드는것
+= @Bean과 비슷한 기능 
+그 하위 종류에는 @Repository / @Service / @Controller 가있다
+
+@Repository = DAO 관련 클래스 빈 생성
+@Service = (Controller 와 DAO 를 연결하는) Service 관련 클래스 빈 생성
+@Controller = Controller 클래스 빈 생성
+
+
+
+5.
+이벤트란 웹페이지에서 할수있는 모든행위
+
+이벤트는 
+이벤트속성(on+이벤트이름) = fuction() { } // 이벤트핸들러
+로 표현할수있으며 해당 등록방법에는 4종류가 있다
+
+
+① 인라인모델
+<body>의 <div>나 <button> 등에서 직접 onclick=함수명() 을 쓰는경우
+
+② 일반모델
+<script>에서 document.getElementBy~ 등으로 요소노드를 가져와서
+요소노드에 직접 변수명.onclick = function() { } 하는경우
+
+①과②의 차이점
+=> ①은 onclick=함수명( ) // 함수실행
+=> ②는 변수명.onclick = 함수명 // 함수자체
+=> 인라인모델은 함수선언을 window.onload에 넣을수 없다
+
+
+③ MS 핸들러 모델 
+* IE8 이전 버전
+요소노드명.attachEvent( "이벤트속성" , 핸들러(함수) )
+
+④ 표준 핸들러 모델
+요소노드명.addEventListener( "이벤트이름" , 핸들러(함수) )
+
+③과④의 차이점
+=> 이벤트속성 / 이벤트이름이 온다 
+
+
+
+
+
+
+
