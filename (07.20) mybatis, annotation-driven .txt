@@ -1,0 +1,57 @@
+** Framework : 시스템을 구축하는데 틀을 제공
+** jdbc : 자바랑 DB를 연결해 주는 역할
+
+---------------------------------------------------------------------------------------------------------------
+1.<annotation-driven /> 은 무엇을 뜻하는가?
+- @ 어노테이션 설정 방식을 사용하겠다는 의미
+- 컨트롤러를 처리하기 위한 객체(Handler Mapping,Handler Adapter)를 빈으로 등록
+
+**Handler Mapping: 매핑할 컨트롤러 검색
+**Handler Adapter: Handler Mapping이 찾은 컨트롤러를 직접 실행하는 기능
+
+bean을 생성하기 위해 <context:component-scan>="패키지명" 태그를 xml에 생성.
+위의 코드에 쓰여진 패키지의 클래스들을 스캔하며 어노테이션을 확인한 후 bean 인스턴스 생성
+
+
+
+
+2.mybatis를 위한 library는?
+
+[pom.xml] - 환경 설정 파일
+
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.4.6</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+
+[root-context.xml] - Session 빌드 및 사용
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+ 		<mybatis-spring:scan
+			base-package="edu.bit.ex.mapper" />
+
+[BoardMapper.xml] - 매핑 설정 파일
+
+	<mapper namespace="edu.bit.ex.mapper.BoardMapper">
+
+		각 함수에 관한 쿼리문
+
+	</mapper>
+
+
+
+3.게시판 삭제를 구현하시오.
+[파일 참조]
+
+
+4.가위바위보 게임을 jquery 함수를 이용하여 구성하시오.
