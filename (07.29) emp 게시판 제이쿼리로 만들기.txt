@@ -1,0 +1,67 @@
+1.emp 를 sb-어드민 템플릿을 이용하여 리스트를 뿌리도록 하시오.
+tables.html을 이용 할것
+---------------------------------------------------------
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EMPLOYEE</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+#list-table{
+	text-align : center;
+	}
+</style>
+<script>
+	$(function() { 
+		
+		var htmls="";
+		$("#list-table").html("");
+		
+		$("<tr>",{
+			html : 	"<td>"+ "사원이름" +"</td>"+
+					"<td>"+ "사원번호" +"</td>"+
+					"<td>"+ "직업" +"</td>"+
+					"<td>"+ "입사일" +"</td>"+
+					"<td>"+ "월급" +"</td>"
+			}).appendTo("#list-table")
+				
+				 <c:forEach var="boardVO" items="${list}">
+					htmls += '<tr>';
+					htmls += '<td>'+ '${boardVO.eName}'+'</td>';
+					htmls += '<td>'+ '${boardVO.empNo}'+'</td>';
+					htmls += '<td>';
+				
+					/* <c:forEach begin="1" end="${boardVO.bIndent}">
+					htmls += '-';
+					</c:forEach> */
+					htmls += '<a href="${pageContext.request.contextPath}/content_view?deptNo=' + '${boardVO.deptNo}">' + '${boardVO.job}' + '</a>';	
+					
+					htmls += '</td>';
+					htmls += '<td>'+ '${boardVO.hireDate}'+'</td>';
+					htmls += '<td>'+ '${boardVO.sal}'+'</td>';
+				</c:forEach>
+			
+			$("#list-table").append(htmls);
+			$("#list-table").append("<td colspan='5'> <a href='write_view'>글작성</a> </td>");
+	});	
+	
+</script>
+	
+<!-- <script>
+	
+	$(function(){
+		makeList();
+	}); 
+	
+</script> -->
+</head>
+<body>
+	<h1 align="center"> EMPLOYEES LIST</h1>
+	<table id="list-table" width="600" cellpadding="0" cellspacing="0" border="1" align="center">
+	</table>
+</body>
+</html>
