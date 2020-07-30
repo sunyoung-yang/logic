@@ -1,0 +1,91 @@
+1.json과 xml의 차이는?
+
+
+2.aspectj 설정 에서 execution 과 within 의 차이는?
+
+
+3.플러그 인을 사용하여 드래그를 만드시오.
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script src="jquery-3.2.1.min.js"></script>
+
+<script>
+	$(function() {
+
+		var draggable = false;
+
+		var x = 0;
+		var y = 0;
+
+		var posX = 0;
+		var posY = 0;
+
+		$("#otani").mousemove(function(e) {
+
+			if (draggable) {
+
+				x = parseInt($(this).css("left")) - (posX - e.pageX);
+
+				y = parseInt($(this).css("top")) - (posY - e.pageY);
+
+				posX = e.pageX;
+
+				posY = e.pageY;
+
+				$(this).css({
+					"left" : x,
+					"top" : y
+				});
+
+			}
+
+			return false;
+
+		});
+
+		$("#otani").mousedown(function(e) {
+
+			posX = e.pageX;
+
+			posY = e.pageY;
+
+			draggable = true;
+
+			return false;
+
+		});
+
+		$("#otani").mouseup(function() {
+
+			draggable = false;
+
+			return false;
+
+		});
+
+		$("#otani").dblclick(function() {
+
+			window.close();
+
+		});
+
+	});
+</script>
+</head>
+<body>
+	<img id="otani" src="img/otani.jpeg" width="350" height="350"
+		style="position: relative; left: 0; top: 0;">
+
+</body>
+</html>
+
+
+4.플러그 인을 사용하여 지정한 기간만 허용하는 달력을 만드시오(현재 날짜를 기준으로 20일 전부터 1개월 10일후의 날짜 ).
+
