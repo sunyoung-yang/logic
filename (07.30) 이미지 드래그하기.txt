@@ -1,10 +1,16 @@
-1.json�� xml�� ���̴�?
+1.json과 xml의 차이는?
+XML : 코드가 틀리면 빨간줄을 띄어서 스키마가 오류를 알려줘   
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+JSON : 오류를 잡아주지 못해 사용자가 직접 해야함
+       속도가 XML보다 빨라
 
 
-2.aspectj ���� ���� execution �� within �� ���̴�?
+2.aspectj 설정 에서 execution 과 within 의 차이는?
+execution :  advice를 적용할 메소드를 명시할 때 사용
+within : 메소드가 아닌 특정 타입에 속하는 메소드를 pointCut으로 설정할 때 사용
 
 
-3.�÷��� ���� ����Ͽ� �巡�׸� ����ÿ�.
+3.플러그 인을 사용하여 드래그를 만드시오.
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -87,5 +93,5 @@
 </html>
 
 
-4.�÷��� ���� ����Ͽ� ������ �Ⱓ�� ����ϴ� �޷��� ����ÿ�(���� ��¥�� �������� 20�� ������ 1���� 10������ ��¥ ).
+4.플러그 인을 사용하여 지정한 기간만 허용하는 달력을 만드시오(현재 날짜를 기준으로 20일 전부터 1개월 10일후의 날짜 ).
 
